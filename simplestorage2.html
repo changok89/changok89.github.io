@@ -61,6 +61,9 @@ window.addEventListener('load', function() {
 
 function startApp() {
   contractAddress = document.getElementById("yourContractAddress").value;
+  if(contractAddress == ""){
+    contractAddress = document.getElementById("yourContractAddress").placeholder;
+  }
   simpleStorageContract = web3.eth.contract(abi);
   simpleStorage = simpleStorageContract.at(contractAddress);
   //document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
