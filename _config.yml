@@ -107,7 +107,7 @@ author:
   name             : "kim chang ok"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : ""
-  location         : "Seoul"
+  location         : "Republic of Korea"
   email            :
   links:
     - label: "Email"
@@ -259,4 +259,4 @@ defaults:
       read_time: true
       comments: # true
       share: true
-      related: true
+      related: # true
