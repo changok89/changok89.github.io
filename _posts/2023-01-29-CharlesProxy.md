@@ -23,8 +23,7 @@ last_modified_at: 2023-01-29
 
 - window, mac, linux를 지원하며 플랫폼에 맞는 설치프로그램을 다운로드받아서 설치한다. 
 - 라이센스를 구매하지않았다면 30일 트라이얼버전으로 사용할 수 있다. 30분 사용제한이 있다.
-
-[다운로드](https://www.charlesproxy.com/download/latest-release/){:target="_blank"}
+- [다운로드](https://www.charlesproxy.com/download/latest-release/){:target="_blank"}
 
 # Charles Web Proxy 사용법
 
