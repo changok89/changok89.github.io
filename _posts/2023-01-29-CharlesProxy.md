@@ -61,4 +61,4 @@ last_modified_at: 2023-01-29
 ## 모바일 proxy 연결 
 
 - iOS 설정이 완료되면 mac에 charles를 킨 상태에서 iphone에서 http통신을 발생시킨다.
-- mac에 charles에 연결알림창에서 확인하면 그때 부터 iphone에서 발생하는 모든 통신을 mac에서 charles로 확인가능하다.
+- charles에 연결알림창이 뜨면 확인을 누른다. 이때부터 iphone에서 발생하는 모든 통신을 mac에서 charles로 확인가능하다.
