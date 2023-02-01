@@ -15,7 +15,7 @@ date: 2023-02-01
 last_modified_at: 2023-02-01
 ---
 
-# SwiftUI Keyboard avoidance
+# SwiftUI Keyboard Avoidance
 - iOS14부터 SwiftUI가 자동으로 keyboard avoidance 기능을 제공하고 있다.
 - 덕분에 textfield에 focus시 전체화면이 resize된다.
 - webview에 input에 focus시에도 적용된다. scroll이 있는 화면에 input에 focus시 키보드가 올라오면서 webview를 resize하여 scroll이 이상동작한다.
@@ -27,9 +27,9 @@ last_modified_at: 2023-02-01
 
 ![Image Alt keyboardAvoidance](/assets/img/contents/keyboardAvoidance/keyboardAvoidacne.gif)
 
-# keyboard avoidance ignore 예
+# keyboard avoidance disable 예
 
-![Image Alt keyboardAvoidance_ignore](/assets/img/contents/keyboardAvoidance/keyboardAvoidance_ignore.gif)
+![Image Alt keyboardAvoidance_disable](/assets/img/contents/keyboardAvoidance/keyboardAvoidance_disable.gif)
 
 ---
 
