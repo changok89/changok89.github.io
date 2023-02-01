@@ -1,6 +1,6 @@
 ---
-title:  "SwiftUi Keyboard avoidance"
-excerpt: "SwiftUi Keyboard avoidance"
+title:  "SwiftUi Keyboard Avoidance"
+excerpt: "SwiftUi Keyboard Avoidance"
 
 categories:
   - iOS
@@ -9,14 +9,14 @@ tags:
 
 toc: true
 toc_sticky : true
-toc_label : SwiftUi Keyboard avoidance
+toc_label : SwiftUi Keyboard Avoidance
 
 date: 2023-02-01
 last_modified_at: 2023-02-01
 ---
 
 # SwiftUI Keyboard avoidance
-- iOS14부터 SwiftUI가 자동으로 지원하는 keyboard avoidance 기능을 제공하고 있다.
+- iOS14부터 SwiftUI가 자동으로 keyboard avoidance 기능을 제공하고 있다.
 - 덕분에 textfield에 focus시 전체화면이 resize된다.
 - webview에 input에 focus시에도 적용된다. scroll이 있는 화면에 input에 focus시 키보드가 올라오면서 webview를 resize하여 scroll이 이상동작한다.
 - .ignoresSafeArea(.keyboard, edges: .bottom)를 적용하면 화면이 resize되지않는다.
