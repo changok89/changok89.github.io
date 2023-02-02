@@ -1,6 +1,6 @@
 ---
 title:  "Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법"
-excerpt: "Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법"
+excerpt: "Chrome NET::ERR_CERT_AUTHORITY_INVALID"
 
 categories:
   - Browser
@@ -15,7 +15,7 @@ date: 2023-02-02
 last_modified_at: 2023-02-02
 ---
 
-# Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법
+# Chrome Self-Sign Certificate 오류 해결방법
 
 - Tomcat에 Self-Sign Certificate로 설정된 SSL서버에 Chrome으로 접속시 만날수있는 오류이다.
 - 이전버전에 Chrome은 무시하고 진행할 수 버튼이 있었으나 사라진걸로 보인다.
