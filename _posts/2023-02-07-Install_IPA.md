@@ -3,7 +3,7 @@ title:  "IPA 파일 설치"
 excerpt: "IPA 파일 설치"
 
 categories:
-  - usage
+  - iOS
 tags:
   - [IPA]
 
