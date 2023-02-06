@@ -1,11 +1,11 @@
 ---
-title:  "XCode Command Line tool을 이용한 Build, Archive, Test"
+title:  "XCode Command Line tool을 이용한 Build, Archive, Export"
 excerpt: "XCodeBuild 사용법"
 
 categories:
   - Utility
 tags:
-  - [XCode]
+  - [XCode, xcodebuild]
 
 toc: true
 toc_sticky : true
