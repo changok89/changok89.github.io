@@ -1,6 +1,6 @@
 ---
-title:  "Android usb debugging 활성화"
-excerpt: "Android usb debugging 활성화"
+title:  "Android USB Debugging 활성화"
+excerpt: "Android USB Debugging 활성화"
 
 categories:
   - Android
