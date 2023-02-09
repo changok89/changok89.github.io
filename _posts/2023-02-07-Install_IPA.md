@@ -39,7 +39,8 @@ last_modified_at: 2023-02-07
 - SSL(https)이 구성된 웹서버가 필요하다.
 - html파일에 a tag로 링크를 만들어 ipa파일을 설치할 수 있다.
 - 링크를 생성하려면 ipa파일뿐만아니라 OTA(over the air)용 manifest.plist파일을 만들어야 한다.
-- mainfest.plist파일을 만들고 html파일에 다음과 같이 주소를 입력한다.
+- mainfest.plist파일을 만들고 html파일에 다음과 같이 주소를 입력한다.  
+
 ``` <a href="itms-services://?action=download-manifest&url=https://domain.com/app/iOS/manifest.plist">app install</a> ```
 
 > ![Image Alt ipa3](/assets/img/contents/ipa/ipa3.png)
