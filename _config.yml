@@ -113,6 +113,9 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:zwerg89@naver.com"
+    - label: "Buy Me a Tea"
+      icon: "fas fa-fw fa-mug-hot"
+      url: "https://buymeacoffee.com/changok89"
 
 # Site Footer
 footer:
@@ -120,6 +123,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/changok89"
+    - label: "Buy Me a Tea"
+      icon: "fas fa-fw fa-mug-hot"
+      url: "https://buymeacoffee.com/changok89"
 
 
 # Reading Files
