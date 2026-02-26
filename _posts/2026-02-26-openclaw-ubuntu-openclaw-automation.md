@@ -1,6 +1,7 @@
 ---
 title: "Ubuntu에 OpenClaw 자동화 시스템 구축하고 Telegram/코딩 자동화 연결하기"
 excerpt: "Mini PC에 Ubuntu를 깔고 OpenClaw 설치, Telegram 연동, codex-cli 등으로 코딩 자동화를 구성하는 방법을 단계별로 설명합니다."
+permalink: /openclaw-ubuntu-openclaw-automation/
 categories:
   - DevOps
   - Automation
