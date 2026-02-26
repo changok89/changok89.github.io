@@ -2,125 +2,113 @@
 """
 generate_ai_news.py
 
-간단한 AI 뉴스 요약 스크립트
-- Google News 검색 RSS에서 AI 관련 기사 상위 N개 수집
-- https://news.hada.io 의 최신 글 목록에서 타이틀 수집
-- 간단 추출식 요약(문장 빈도 기반)
-- _posts/YYYY-MM-DD-ai-news.md 파일 생성
+변경 사항:
+- 기존에는 외부 기사 요약을 생성했으나, 요청에 맞춰 Hada.io에서 주제(제목)를 추출한 뒤
+  각 주제를 '튜토리얼/가이드' 스타일의 원본 포스트로 생성하도록 변경했습니다.
+- 가능하면 codex-cli를 사용해 글을 생성하고, 없으면 템플릿 기반으로 생성합니다.
 
-노트: 이 스크립트는 외부 LLM을 사용하지 않고 로컬 룰 기반 요약을 사용합니다.
+동작 방식:
+1) Hada.io에서 최신 제목들을 수집(주제 후보)
+2) 각 제목을 주제로 codex-cli generate를 호출해 포스트 본문을 생성(또는 로컬 템플릿)
+3) _posts/YYYY-MM-DD-<slug>.md 파일로 저장
+
+주의:
+- codex-cli가 설치되어 있고 PATH에 있어야 실제 모델 기반 생성을 수행합니다.
+- 워크플로(또는 로컬)의 권한/환경에 맞게 테스트 후 사용하세요.
 """
 import os
-import sys
 import re
+import shlex
+import subprocess
 from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
-import feedparser
 
-# 설정
-GOOGLE_NEWS_RSS = 'https://news.google.com/rss/search?q=AI&hl=ko&gl=KR&ceid=KR:ko'
-HADA_URL = 'https://news.hada.io'
 POSTS_DIR = '_posts'
-MAX_ITEMS = 6
-
-# 유틸: 간단 요약 (문장 중요도 기반)
-def summarize_text(text, max_sents=3):
-    # 문장 분리
-    sents = re.split(r'(?<=[.?!])\s+', text)
-    if len(sents) <= max_sents:
-        return ' '.join(sents).strip()
-    # 단어 빈도 계산
-    words = re.findall(r"\w+", text.lower())
-    freq = {}
-    for w in words:
-        if len(w) <= 2:
-            continue
-        freq[w] = freq.get(w, 0) + 1
-    scores = []
-    for s in sents:
-        s_words = re.findall(r"\w+", s.lower())
-        score = sum(freq.get(w,0) for w in s_words)
-        scores.append((score, s))
-    scores.sort(reverse=True)
-    chosen = [s for _, s in scores[:max_sents]]
-    return ' '.join(chosen).strip()
+HADA_URL = 'https://news.hada.io'
+MAX_TOPICS = 3
 
 
-def fetch_google_news(rss_url):
-    d = feedparser.parse(rss_url)
-    items = []
-    for entry in d.entries[:MAX_ITEMS]:
-        title = entry.get('title')
-        link = entry.get('link')
-        summary = entry.get('summary', '')
-        items.append({'title': title, 'link': link, 'summary': summary})
-    return items
+def slugify(text):
+    s = text.lower()
+    s = re.sub(r'[^a-z0-9\- ]+', '', s)
+    s = re.sub(r'\s+', '-', s)
+    s = re.sub(r'-+', '-', s)
+    s = s.strip('-')
+    return s[:60]
 
 
-def fetch_hada_news(hada_url):
+def fetch_hada_topics(hada_url):
     try:
         r = requests.get(hada_url, timeout=10)
         r.raise_for_status()
-    except Exception as e:
+    except Exception:
         return []
     soup = BeautifulSoup(r.text, 'html.parser')
-    items = []
-    # 시도: 기사 목록에서 링크와 제목 추출 (일반적인 구조에 유연하게 대응)
-    for a in soup.select('a')[:MAX_ITEMS*2]:
-        href = a.get('href')
-        text = a.get_text(strip=True)
-        if not href or not text:
+    titles = []
+    # 선택자 유연하게 시도: h2, h3, a 등
+    for tag in soup.select('h1, h2, h3, a'):
+        text = tag.get_text(strip=True)
+        if not text:
             continue
-        if len(text) < 10:
+        # 필터: 너무 짧거나 너무 긴 텍스트는 제외
+        if len(text) < 12 or len(text) > 120:
             continue
-        # 절대 URL로 변환
-        if href.startswith('/'):
-            href = hada_url.rstrip('/') + href
-        if 'http' not in href:
+        # 중복 제거
+        if text in titles:
             continue
-        items.append({'title': text, 'link': href})
-        if len(items) >= MAX_ITEMS:
+        titles.append(text)
+        if len(titles) >= MAX_TOPICS:
             break
-    return items
+    return titles
 
 
-def build_markdown(google_items, hada_items):
+def generate_with_codex(prompt, timeout=30):
+    # codex-cli가 설치돼 있으면 사용
+    cmd = f'codex-cli generate --prompt {shlex.quote(prompt)} --language markdown --max-tokens 800'
+    try:
+        res = subprocess.run(cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout, text=True)
+        return res.stdout.strip()
+    except Exception as e:
+        return None
+
+
+def build_post_from_topic(topic):
     today = datetime.now().strftime('%Y-%m-%d')
-    title = f"AI 뉴스 요약 — {today}"
-    filename = f"{today}-ai-news.md"
-    lines = []
-    lines.append('---')
-    lines.append(f'title: "{title}"')
-    lines.append(f'date: {today}')
-    lines.append('categories: [AI, News]')
-    lines.append('tags: [AI, News, daily]')
-    lines.append('layout: post')
-    lines.append('---\n')
-    lines.append(f'# 오늘의 AI 뉴스 요약 ({today})\n')
-    lines.append('## 핵심 포인트\n')
-    # 합쳐서 간단 키워드 요약
-    if google_items:
-        top = google_items[0]
-        lines.append(f'- 주요 헤드라인: [{top["title"]}]({top["link"]})')
-    lines.append('\n')
-    lines.append('## 주요 기사\n')
-    idx = 1
-    for it in google_items:
-        summary = summarize_text(it.get('summary','') or it.get('title',''), max_sents=2)
-        lines.append(f'{idx}. [{it["title"]}]({it["link"]})')
-        lines.append(f'   \n   요약: {summary}\n')
-        idx += 1
-
-    if hada_items:
-        lines.append('\n## Hada.io 최신글\n')
-        for it in hada_items:
-            lines.append(f'- [{it["title"]}]({it["link"]})')
-
-    lines.append('\n---\n')
-    lines.append('원문 링크는 각 항목을 확인하세요. 자동 수집된 요약이므로 원문을 참고하시길 권장합니다.')
-
-    content = '\n'.join(lines)
+    slug = slugify(topic)
+    filename = f"{today}-{slug}.md"
+    # Prompt: 튜토리얼/가이드 형식
+    prompt = (
+        f"Write a clear, friendly Korean tutorial article about the following topic:\n\n"
+        f"{topic}\n\n"
+        "Structure:\n- Short intro (what and why)\n- Step-by-step guide or explanation with code/examples if relevant\n- Practical tips and common pitfalls\n- Short summary and further resources\n\n"
+        "Tone: Helpful, senior developer, concise but friendly. Output in Markdown."
+    )
+    content = generate_with_codex(prompt)
+    if not content:
+        # fallback: simple template
+        content_lines = [
+            '---',
+            f'title: "{topic}"',
+            f'date: {today}',
+            'categories: [AI, Tutorial]',
+            'tags: [AI, tutorial, guide]',
+            'layout: post',
+            '---\n',
+            f'# {topic}\n',
+            '## 소개\n',
+            '이 글은 위 주제에 대해 실전에서 바로 적용할 수 있는 튜토리얼 형식으로 정리한 내용입니다.\n',
+            '## 단계별 가이드\n',
+            '1. 준비: 필요한 도구와 환경 설정을 설명합니다.\n',
+            '2. 실행: 핵심 단계와 예시 명령어를 제공합니다.\n',
+            '3. 검증: 동작 확인 방법과 테스트 팁을 안내합니다.\n',
+            '## 실전 팁\n',
+            '- 팁 1: ...\n',
+            '- 팁 2: ...\n',
+            '## 마무리\n',
+            '간단 요약 및 다음 단계 제안.'
+        ]
+        content = '\n'.join(content_lines)
     return filename, content
 
 
@@ -133,11 +121,19 @@ def save_post(filename, content):
 
 
 def main():
-    google_items = fetch_google_news(GOOGLE_NEWS_RSS)
-    hada_items = fetch_hada_news(HADA_URL)
-    filename, content = build_markdown(google_items, hada_items)
-    path = save_post(filename, content)
-    print(path)
+    topics = fetch_hada_topics(HADA_URL)
+    if not topics:
+        print('No topics found, exiting')
+        return
+    created = []
+    for topic in topics:
+        filename, content = build_post_from_topic(topic)
+        path = save_post(filename, content)
+        print('Created', path)
+        created.append(path)
+    # Optionally print created files
+    for p in created:
+        print(p)
 
 if __name__ == '__main__':
     main()
