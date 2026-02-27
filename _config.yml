@@ -133,6 +133,9 @@ include:
   - .htaccess
   - _pages
   - app-ads.txt
+  - escapering_marketing.html
+  - srtflow_marketing.html
+  - iconv_marketing.html
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
