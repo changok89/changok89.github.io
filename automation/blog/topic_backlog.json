@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Android Studio에서 ADB와 scrcpy 조합으로 실기기 디버깅 시간을 줄이는 방법",
+    "category": "Android",
+    "tags": ["Android", "adb", "scrcpy", "debugging"],
+    "intent": "실기기 디버깅 세팅을 빠르게 반복하는 개발자를 위한 가이드"
+  },
+  {
+    "title": "SwiftUI 프로젝트에 온디바이스 AI 기능을 얹을 때 먼저 결정해야 하는 것들",
+    "category": "iOS",
+    "tags": ["iOS", "SwiftUI", "on-device AI", "Core ML"],
+    "intent": "온디바이스 AI 기능 도입 전 판단 포인트 정리"
+  },
+  {
+    "title": "모바일 앱 개발에서 vibe coding을 써도 되는 영역과 위험한 영역",
+    "category": "Mobile",
+    "tags": ["mobile", "vibe coding", "AI", "workflow"],
+    "intent": "AI 코딩 보조를 실무에 적용할 때 경계선을 설명"
+  },
+  {
+    "title": "SDD 방식으로 Android와 iOS 기능 명세를 가볍게 유지하는 템플릿",
+    "category": "Engineering",
+    "tags": ["SDD", "Android", "iOS", "planning"],
+    "intent": "기능 명세와 구현 사이의 마찰을 줄이는 실전 템플릿 소개"
+  },
+  {
+    "title": "LLM API 대신 온디바이스 AI를 선택해야 하는 모바일 기능 5가지",
+    "category": "AI",
+    "tags": ["AI", "on-device AI", "mobile", "privacy"],
+    "intent": "모바일 제품에서 온디바이스 AI 적합 사례 설명"
+  }
+]

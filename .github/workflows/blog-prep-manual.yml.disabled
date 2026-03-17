@@ -1,0 +1,41 @@
+name: Blog Prep Manual
+
+on:
+  workflow_dispatch:
+    inputs:
+      prefer:
+        description: "auto | new | upgrade"
+        required: false
+        default: "auto"
+
+jobs:
+  prepare-blog-task:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run blog pipeline
+        run: |
+          python3 scripts/blog_pipeline.py prepare --prefer "${{ github.event.inputs.prefer || 'auto' }}"
+          python3 scripts/blog_quality.py scan --report automation/blog/reports/latest-quality-report.md --json automation/blog/reports/latest-quality-report.json
+
+      - name: Upload artifacts only
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-prep-output
+          path: |
+            automation/blog/reports/
+            automation/blog/plans/
+            automation/blog/drafts/
+            automation/blog/upgrades/
+            automation/blog/review/
+
+# Safety note:
+# - This workflow is intentionally disabled by default.
+# - It does NOT commit or publish.
+# - It only prepares reviewable artifacts.

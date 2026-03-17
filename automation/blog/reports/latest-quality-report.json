@@ -1,0 +1,468 @@
+[
+  {
+    "path": "_posts/2023-02-05-lipo.md",
+    "title": "lipo 사용법",
+    "date": "2023-02-05",
+    "categories": [
+      "Utility"
+    ],
+    "tags": [
+      "[lipo]"
+    ],
+    "word_count": 127,
+    "headings": 3,
+    "code_blocks": 0,
+    "links": 0,
+    "images": 0,
+    "list_items": 9,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 38,
+    "band": "thin",
+    "reasons": [
+      "본문 길이가 짧음",
+      "코드/링크/이미지 같은 실전 요소가 약함"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-03-ffmpeg.md",
+    "title": "ffmpeg로 동영상 변환 및 저장",
+    "date": "2023-02-03",
+    "categories": [
+      "Utility"
+    ],
+    "tags": [
+      "[ffmpeg]"
+    ],
+    "word_count": 235,
+    "headings": 6,
+    "code_blocks": 1,
+    "links": 1,
+    "images": 0,
+    "list_items": 9,
+    "excerpt_present": true,
+    "topic_match": false,
+    "score": 44,
+    "band": "thin",
+    "reasons": [
+      "본문 길이가 짧음",
+      "핵심 블로그 주제와의 연결이 약함"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-02-thisisunsafe.md",
+    "title": "Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법",
+    "date": "2023-02-02",
+    "categories": [
+      "Browser"
+    ],
+    "tags": [
+      "[self-signed certificate, Chrome]"
+    ],
+    "word_count": 108,
+    "headings": 4,
+    "code_blocks": 0,
+    "links": 2,
+    "images": 2,
+    "list_items": 4,
+    "excerpt_present": true,
+    "topic_match": false,
+    "score": 45,
+    "band": "thin",
+    "reasons": [
+      "본문 길이가 짧음",
+      "핵심 블로그 주제와의 연결이 약함"
+    ]
+  },
+  {
+    "path": "_posts/2023-01-29-CharlesProxy.md",
+    "title": "Charles Web Proxy 사용법",
+    "date": "2023-01-29",
+    "categories": [
+      "Proxy"
+    ],
+    "tags": [
+      "[Charles, Proxy]"
+    ],
+    "word_count": 243,
+    "headings": 6,
+    "code_blocks": 0,
+    "links": 9,
+    "images": 8,
+    "list_items": 17,
+    "excerpt_present": true,
+    "topic_match": false,
+    "score": 45,
+    "band": "thin",
+    "reasons": [
+      "본문 길이가 짧음",
+      "핵심 블로그 주제와의 연결이 약함",
+      "짧은 글인데 목록 위주 구성"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-07-iMazing.md",
+    "title": "iMazing 사용법",
+    "date": "2023-02-07",
+    "categories": [
+      "iOS"
+    ],
+    "tags": [
+      "[iMazing]"
+    ],
+    "word_count": 106,
+    "headings": 3,
+    "code_blocks": 0,
+    "links": 4,
+    "images": 4,
+    "list_items": 10,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 48,
+    "band": "thin",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-01-30-Chrome_Inspector.md",
+    "title": "Chrome Inspector 사용법",
+    "date": "2023-01-30",
+    "categories": [
+      "Inspector"
+    ],
+    "tags": [
+      "[Chrome, Inspector, Web Debugging]"
+    ],
+    "word_count": 179,
+    "headings": 5,
+    "code_blocks": 0,
+    "links": 2,
+    "images": 1,
+    "list_items": 14,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 53,
+    "band": "thin",
+    "reasons": [
+      "본문 길이가 짧음",
+      "짧은 글인데 목록 위주 구성"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-01-SwiftUI_Keybarod_avoidance.md",
+    "title": "SwiftUi Keyboard Avoidance",
+    "date": "2023-02-01",
+    "categories": [
+      "iOS"
+    ],
+    "tags": [
+      "[iOS, SwiftUI]"
+    ],
+    "word_count": 78,
+    "headings": 4,
+    "code_blocks": 0,
+    "links": 3,
+    "images": 2,
+    "list_items": 4,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 55,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-08-Mirroring.md",
+    "title": "iOS 화면 미러링",
+    "date": "2023-02-08",
+    "categories": [
+      "Utility"
+    ],
+    "tags": [
+      "[iOS, Mirroring]"
+    ],
+    "word_count": 79,
+    "headings": 4,
+    "code_blocks": 0,
+    "links": 3,
+    "images": 3,
+    "list_items": 7,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 55,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-08-AndroidUSBDebugging.md",
+    "title": "Android USB Debugging 활성화",
+    "date": "2023-02-08",
+    "categories": [
+      "Android"
+    ],
+    "tags": [
+      "[usb debugging]"
+    ],
+    "word_count": 117,
+    "headings": 4,
+    "code_blocks": 0,
+    "links": 4,
+    "images": 4,
+    "list_items": 8,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 55,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-01-26-iOS_Developer_Mode.md",
+    "title": "iOS Developer Mode 활성화 방법",
+    "date": "2023-01-26",
+    "categories": [
+      "iOS"
+    ],
+    "tags": [
+      "[iOS, Developer Mode]"
+    ],
+    "word_count": 151,
+    "headings": 4,
+    "code_blocks": 0,
+    "links": 7,
+    "images": 6,
+    "list_items": 11,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 55,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-01-27-Safari Web Inspector.md",
+    "title": "Safari Inspector 사용법",
+    "date": "2023-01-27",
+    "categories": [
+      "iOS"
+    ],
+    "tags": [
+      "[Safari, Web Debugging]"
+    ],
+    "word_count": 220,
+    "headings": 6,
+    "code_blocks": 0,
+    "links": 5,
+    "images": 5,
+    "list_items": 14,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 55,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음",
+      "짧은 글인데 목록 위주 구성"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-08-scrcpy.md",
+    "title": "scrcpy 사용법",
+    "date": "2023-02-08",
+    "categories": [
+      "Utility"
+    ],
+    "tags": [
+      "[scrcpy, Mirroring]"
+    ],
+    "word_count": 333,
+    "headings": 13,
+    "code_blocks": 0,
+    "links": 7,
+    "images": 3,
+    "list_items": 11,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 55,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-04-adb.md",
+    "title": "adb 사용법",
+    "date": "2023-02-04",
+    "categories": [
+      "Utility"
+    ],
+    "tags": [
+      "[adb]"
+    ],
+    "word_count": 178,
+    "headings": 3,
+    "code_blocks": 11,
+    "links": 10,
+    "images": 8,
+    "list_items": 11,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 58,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-07-Install_IPA.md",
+    "title": "IPA 파일 설치",
+    "date": "2023-02-07",
+    "categories": [
+      "iOS"
+    ],
+    "tags": [
+      "[IPA]"
+    ],
+    "word_count": 132,
+    "headings": 4,
+    "code_blocks": 1,
+    "links": 3,
+    "images": 3,
+    "list_items": 10,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 59,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-07-UDID.md",
+    "title": "UDID 확인방법",
+    "date": "2023-02-07",
+    "categories": [
+      "iOS"
+    ],
+    "tags": [
+      "[UDID]"
+    ],
+    "word_count": 146,
+    "headings": 5,
+    "code_blocks": 0,
+    "links": 8,
+    "images": 8,
+    "list_items": 1,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 59,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2026-02-26-openclaw-ubuntu-openclaw-automation.md",
+    "title": "Ubuntu에 OpenClaw 자동화 시스템 구축하고 Telegram/코딩 자동화 연결하기",
+    "date": "2026-02-26",
+    "categories": [
+      "DevOps",
+      "Automation"
+    ],
+    "tags": [
+      "[OpenClaw, Ubuntu, Telegram, Automation, codex-cli]"
+    ],
+    "word_count": 414,
+    "headings": 17,
+    "code_blocks": 8,
+    "links": 0,
+    "images": 0,
+    "list_items": 17,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 60,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음",
+      "짧은 글인데 목록 위주 구성"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-10-userAgent2.md",
+    "title": "Android WebView userAgent",
+    "date": "2023-02-10",
+    "categories": [
+      "Android"
+    ],
+    "tags": [
+      "[Android,userAgent]"
+    ],
+    "word_count": 37,
+    "headings": 2,
+    "code_blocks": 2,
+    "links": 2,
+    "images": 2,
+    "list_items": 2,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 62,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-09-userAgent.md",
+    "title": "WKWebView userAgent",
+    "date": "2023-02-09",
+    "categories": [
+      "iOS"
+    ],
+    "tags": [
+      "[WKWebView, userAgent]"
+    ],
+    "word_count": 132,
+    "headings": 4,
+    "code_blocks": 3,
+    "links": 3,
+    "images": 3,
+    "list_items": 11,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 65,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음"
+    ]
+  },
+  {
+    "path": "_posts/2023-02-06-XCodeBuild.md",
+    "title": "XCode Command Line tool을 이용한 Build, Archive, Export",
+    "date": "2023-02-06",
+    "categories": [
+      "Utility"
+    ],
+    "tags": [
+      "[XCode, xcodebuild]"
+    ],
+    "word_count": 184,
+    "headings": 12,
+    "code_blocks": 8,
+    "links": 5,
+    "images": 5,
+    "list_items": 14,
+    "excerpt_present": true,
+    "topic_match": true,
+    "score": 65,
+    "band": "needs-work",
+    "reasons": [
+      "본문 길이가 짧음",
+      "짧은 글인데 목록 위주 구성"
+    ]
+  }
+]
