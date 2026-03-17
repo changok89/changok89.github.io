@@ -1,95 +1,134 @@
-# 업그레이드 작업지시서 — Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법
+---
+title: "Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법"
+source_post: "_posts/2023-02-02-thisisunsafe.md"
+source_title: "Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법"
+category: Browser
+tags: [self-signed certificate, Chrome, TLS]
+status: needs_review
+upgrade_note: "개발 환경 self-signed 인증서 문제 해결 가이드로 확장"
+---
 
-- 원본 경로: `_posts/2023-02-02-thisisunsafe.md`
-- 현재 점수: 45
-- 현재 단어 수: 108
-- 현재 카테고리: Browser
-- 현재 태그: [self-signed certificate, Chrome]
-- 업그레이드 사유: 본문 길이가 짧음, 핵심 블로그 주제와의 연결이 약함
+# Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법
 
-## 목표
-이 글을 AdSense 관점에서 "빈약한 콘텐츠"로 보이지 않도록 확장한다.
+사내 개발 서버나 로컬 테스트 서버에 접속할 때 Chrome에서 `NET::ERR_CERT_AUTHORITY_INVALID`가 뜨면 처음에는 서버가 완전히 죽은 것처럼 느껴진다. 그런데 실제로는 서버가 죽은 게 아니라 **브라우저가 인증서를 신뢰하지 않는 상태**인 경우가 많다. 개발 환경에서는 self-signed certificate를 쓰거나 내부 CA를 쓰는 경우가 흔해서 더 자주 만난다.
 
-## 최소 목표
-- 최종 단어 수 700~1200+ 단어
-- 실전 맥락 추가
-- 왜 필요한지 설명 추가
-- 실패 사례 / 주의점 / 트러블슈팅 2개 이상 추가
-- 내부 링크 2개 이상 검토
-- 결론/요약 추가
+문제는 해결 방법을 잘못 쓰면 위험하다는 점이다. 검색하면 `thisisunsafe`나 `--ignore-certificate-errors`가 먼저 나오는데, 이건 어디까지나 **개발/검증용 우회**다. 운영 환경 문제를 이렇게 덮으면 안 된다.
 
-## 권장 구조
-1. 문제 상황
-2. 왜 이 방법이 필요한가
-3. 테스트 환경 / 버전 / 대상
-4. 실제 단계별 방법
-5. 자주 겪는 문제와 해결
-6. 언제 쓰면 좋고 언제 안 쓰면 좋은가
-7. 요약
+## 이 오류가 의미하는 것
 
-## 반드시 보강할 것
-- 기존 짧은 명령어/메모 스타일에서 탈피
-- 단순 복붙 글처럼 보이지 않게 개인적 판단/실무 관점 추가
-- Android / iOS / mobile / AI / on-device AI / SDD / vibe coding 중 관련되는 축이 있으면 자연스럽게 연결
-- 제목과 본문이 정확히 맞아야 함
+Chrome은 TLS 연결 시 서버가 제시한 인증서가 신뢰 가능한 CA 체인으로 이어지는지 확인한다. 아래 같은 경우 이 오류가 자주 난다.
 
-## 초안 작성용 참고 템플릿
+- self-signed 인증서를 직접 사용함
+- 회사 내부 CA를 로컬에 설치하지 않음
+- 인증서 체인이 누락됨
+- 인증서의 SAN, 도메인, 유효기간이 맞지 않음
 
-# Blog Post Prompt Template
+즉, “HTTPS인데 왜 안 되지?”가 아니라 **브라우저가 이 서버를 믿을 근거가 부족한 상태**라고 이해하는 편이 정확하다.
 
-Use this template when drafting a new developer blog post.
+## 가장 먼저 해야 할 판단
 
-## System intent
+개발용 임시 서버인지, 운영에 가까운 서버인지부터 구분해야 한다.
 
-Write an original, human-sounding Korean developer blog post for a personal Jekyll blog.
-The post must be useful enough to survive an AdSense quality review.
-Do not write like a content farm or generic SEO article.
+### 개발/로컬 테스트 환경
 
-## Audience
+짧게 우회해서 기능을 확인할 수 있다. 다만 우회는 임시 수단이어야 한다.
 
-- mobile developers
-- Android / iOS engineers
-- developers interested in AI, on-device AI, SDD, vibe coding
-- practical builders who want examples, pitfalls, and decision criteria
+### 운영/스테이징 환경
 
-## Required workflow
+반드시 인증서 체인, 루트 CA, SAN, 중간 인증서를 정상화해야 한다. 브라우저 경고를 무시하는 방식은 답이 아니다.
 
-Follow this order internally:
-1. topic research summary
-2. planning / outline
-3. writing
-4. self-review and revision
-5. handoff for upload
+## 빠른 임시 우회 방법
 
-## Writing rules
+### 1) `thisisunsafe`
 
-- Open with the concrete problem or question.
-- Explain why this topic matters in real work.
-- Include practical steps, code, commands, or configuration where relevant.
-- Add trade-offs, pitfalls, and debugging tips.
-- Prefer firsthand judgment and synthesis over summary.
-- Avoid overclaiming.
-- If something needs verification, say so.
-- Avoid repetitive filler and keyword stuffing.
-- Keep the tone like a competent engineer writing notes for other engineers.
+Chrome의 경고 화면에 포커스를 둔 상태에서 키보드로 `thisisunsafe`를 입력하면 경고를 넘길 수 있는 경우가 있다. 예전부터 개발자들이 많이 쓰는 편법이다.
 
-## Reviewer checklist that must be satisfied before handoff
+이 방법은 빠르지만 단점도 분명하다.
 
-- Does the article answer the search intent clearly?
-- Does it contain enough substance beyond definitions?
-- Does it include at least one of: code, command, checklist, comparison, failure mode, debugging tip?
-- Does it sound like a human with opinions and experience?
-- Would a reader bookmark or share it because it is useful?
-- Is the title honestly matched by the body?
-- Is there anything that looks auto-generated or padded? Remove it.
+- 팀 문서로 남기기엔 너무 마법 주문 같다
+- 브라우저 버전/정책에 따라 항상 기대하면 안 된다
+- 근본 원인을 해결하지 않는다
 
-## Output format
+그래서 개인적으로는 “지금 당장 로컬 화면 확인이 급할 때” 정도로만 쓴다.
 
-Return Markdown with:
-- front matter
-- intro
-- 3 to 6 substantive sections
-- practical checklist or summary
-- short conclusion
-- status line at end: `status: needs_review`
+### 2) Chrome 실행 옵션으로 우회
 
+개발용 별도 브라우저 인스턴스를 띄우는 방법도 있다.
+
+macOS 예시:
+
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+  --ignore-certificate-errors \
+  --ignore-urlfetcher-cert-requests
+```
+
+이 방식 역시 편하지만, 평소 사용하는 메인 브라우저에 습관적으로 적용하는 건 추천하지 않는다. 보안 감각을 둔하게 만들기 쉽다.
+
+## 근본 해결: 신뢰 가능한 인증서 체인 만들기
+
+장기적으로는 이쪽이 맞다. 로컬 개발이라면 아래 선택지가 있다.
+
+- 내부 CA를 만들어 로컬 신뢰 저장소에 설치
+- `mkcert` 같은 도구로 로컬 신뢰 가능한 개발 인증서 발급
+- 프록시 도구(예: Charles)의 루트 인증서를 정확히 설치
+
+특히 팀 단위 개발에서는 “각자 thisisunsafe 입력”보다 **공통 개발 인증서 발급 방식**을 잡아두는 편이 훨씬 건강하다.
+
+예를 들어 `mkcert`를 쓰면 로컬에서 신뢰 가능한 개발용 인증서를 비교적 편하게 만들 수 있다.
+
+```bash
+mkcert -install
+mkcert local.example.test localhost 127.0.0.1 ::1
+```
+
+그 뒤 서버 설정에서 해당 인증서를 사용하면 브라우저 경고 없이 개발할 수 있다.
+
+## 자주 겪는 함정
+
+### 도메인 이름이 인증서와 다르다
+
+예전에는 CN만 맞아도 되는 듯 보였지만, 요즘은 SAN이 더 중요하다. `localhost`용 인증서로 `api.dev.local`에 접속하면 당연히 경고가 뜬다.
+
+### 중간 인증서 누락
+
+서버는 리프 인증서만 달아두고 중간 인증서를 빠뜨리는 실수가 꽤 흔하다. 로컬에서는 가끔 되고, 다른 환경에서는 안 되는 이상한 증상으로 보일 수 있다.
+
+### 프록시 도구 인증서와 충돌
+
+Charles나 유사 프록시를 쓰는 환경에서는 프록시 CA를 신뢰해야 HTTPS 복호화가 된다. 이 상태를 잘못 이해하면 서버 인증서 문제와 프록시 인증서 문제를 섞어버리기 쉽다.
+
+## 실무 판단
+
+내 기준은 이렇다.
+
+- **잠깐 화면만 봐야 한다** → `thisisunsafe` 가능
+- **하루 이상 반복 테스트한다** → 신뢰 가능한 로컬 인증서 구성
+- **팀 공용 서버다** → 체인과 발급 방식부터 바로잡기
+
+편한 우회가 항상 좋은 해결책은 아니다. 특히 AI 도구나 자동화 테스트가 붙는 환경에서는 HTTPS 구성이 안정적이어야 재현성도 좋아진다.
+
+## 체크리스트
+
+- [ ] 이 서버가 개발용인지 운영용인지 구분했다
+- [ ] self-signed / 내부 CA / 체인 누락 중 어떤 문제인지 확인했다
+- [ ] 임시 우회는 임시로만 사용했다
+- [ ] 반복 개발 환경이라면 `mkcert` 등으로 로컬 신뢰 체계를 만들었다
+- [ ] 프록시 도구 사용 중이라면 별도 인증서 문제를 분리해서 봤다
+
+## 마무리
+
+`NET::ERR_CERT_AUTHORITY_INVALID`는 겉보기에는 단순한 브라우저 에러지만, 실제로는 **신뢰 체인 설계가 허술한 상태**를 드러내는 신호다. 급할 때 우회는 가능하지만, 개발 생산성을 생각하면 결국은 인증서 구성을 바로잡는 편이 훨씬 덜 번거롭다. 브라우저를 속이는 방법보다 브라우저가 신뢰할 수 있는 환경을 만드는 쪽이 오래 간다.
+## 팀 문서에 남길 때 추천하는 방식
+
+이 주제는 검색으로 해결하는 사람은 많지만, 팀 지식으로는 잘 정리되지 않는 편이다. 개인적으로는 사내 위키에 아래 항목을 같이 남겨 두는 것을 추천한다.
+
+- 로컬 개발용 인증서 발급 방법
+- 브라우저/OS별 신뢰 저장소 등록 절차
+- 임시 우회는 언제까지 허용하는지
+- 프록시 도구 인증서와 서버 인증서를 어떻게 구분하는지
+
+그래야 새로 합류한 개발자가 매번 위험한 우회부터 배우지 않는다. 보안 문제는 편한 편법보다 **일관된 팀 규칙**이 훨씬 중요하다.
+
+
+status: needs_review
