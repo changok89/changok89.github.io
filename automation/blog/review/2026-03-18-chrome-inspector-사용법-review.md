@@ -1,12 +1,12 @@
-# 리뷰 체크 — lipo 사용법
+# 리뷰 체크 — Chrome Inspector 사용법
 
-- 대상 초안: `automation/blog/upgrades/2026-03-18-lipo-사용법.md`
-- 원본 글: `_posts/2023-02-05-lipo.md`
+- 대상 초안: `automation/blog/upgrades/2026-03-18-chrome-inspector-사용법.md`
+- 원본 글: `_posts/2023-01-30-Chrome_Inspector.md`
 
 ## 현재 약점
-- 점수: 38
-- 단어 수: 127
-- 사유: 본문 길이가 짧음, 코드/링크/이미지 같은 실전 요소가 약함
+- 점수: 53
+- 단어 수: 179
+- 사유: 본문 길이가 짧음, 짧은 글인데 목록 위주 구성
 
 ## 리뷰 체크리스트
 

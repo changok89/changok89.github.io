@@ -1,12 +1,12 @@
-# 리뷰 체크 — lipo 사용법
+# 리뷰 체크 — Charles Web Proxy 사용법
 
-- 대상 초안: `automation/blog/upgrades/2026-03-18-lipo-사용법.md`
-- 원본 글: `_posts/2023-02-05-lipo.md`
+- 대상 초안: `automation/blog/upgrades/2026-03-18-charles-web-proxy-사용법.md`
+- 원본 글: `_posts/2023-01-29-CharlesProxy.md`
 
 ## 현재 약점
-- 점수: 38
-- 단어 수: 127
-- 사유: 본문 길이가 짧음, 코드/링크/이미지 같은 실전 요소가 약함
+- 점수: 45
+- 단어 수: 243
+- 사유: 본문 길이가 짧음, 핵심 블로그 주제와의 연결이 약함, 짧은 글인데 목록 위주 구성
 
 ## 리뷰 체크리스트
 
