@@ -12,8 +12,8 @@ tags:
 toc: true
 toc_sticky: true
 date: 2026-03-18
-last_modified_at: 2026-03-18
-layout: post
+last_modified_at: 2026-03-21
+toc_label: Chrome 인증서 오류 해결
 ---
 
 # Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법

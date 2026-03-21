@@ -12,8 +12,8 @@ tags:
 toc: true
 toc_sticky: true
 date: 2026-03-18
-last_modified_at: 2026-03-18
-layout: post
+last_modified_at: 2026-03-21
+toc_label: ffmpeg 변환 가이드
 ---
 
 # ffmpeg로 동영상 변환 및 저장

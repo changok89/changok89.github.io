@@ -12,8 +12,8 @@ tags:
 toc: true
 toc_sticky: true
 date: 2026-03-18
-last_modified_at: 2026-03-18
-layout: post
+last_modified_at: 2026-03-21
+toc_label: SwiftUI Keyboard Avoidance
 ---
 
 # SwiftUI Keyboard Avoidance
