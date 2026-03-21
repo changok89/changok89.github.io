@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FieldConvert Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for FieldConvert, a utility-focused unit conversion tool." />
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --line: #d7e1ec;
+      --text: #102033;
+      --muted: #4b6178;
+      --accent: #0f766e;
+      --accent-soft: #d7f5ef;
+      --max: 980px;
+      --radius: 22px;
+      --shadow: 0 16px 40px rgba(16, 32, 51, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f7fafc 0%, #eef4f8 100%);
+      color: var(--text);
+      line-height: 1.72;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 28px)); margin: 0 auto; }
+
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 44px 0 24px;
+    }
+
+    .hero-card,
+    .content-card,
+    .note-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 32px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+    }
+
+    h1 { font-size: clamp(2rem, 4vw, 3.4rem); }
+    h2 { font-size: clamp(1.35rem, 2.5vw, 2rem); margin-top: 0; }
+    h3 { font-size: 1.05rem; }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 65ch;
+      margin-bottom: 0;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f3f8fb;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 20px;
+      padding: 12px 0 48px;
+    }
+
+    .toc,
+    .content-card {
+      padding: 24px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 86px;
+      align-self: start;
+    }
+
+    .toc h3 { margin-bottom: 10px; }
+    .toc ol {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .toc li + li { margin-top: 8px; }
+
+    .content-card section + section {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    p, li { color: var(--muted); }
+    ul { padding-left: 18px; }
+
+    .note-card {
+      margin-top: 22px;
+      padding: 20px;
+      background: linear-gradient(180deg, #f5fffc 0%, #ffffff 100%);
+    }
+
+    footer {
+      padding: 0 0 56px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 920px) {
+      .layout { grid-template-columns: 1fr; }
+      .toc { position: static; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card, .toc, .content-card, .note-card { padding: 20px; }
+      .topbar-inner { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="marketing-overview.html">
+        <span class="brand-mark">⇄</span>
+        <span>FieldConvert</span>
+      </a>
+      <nav class="nav-links" aria-label="Public pages">
+        <a href="marketing-overview.html">Overview</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-card">
+        <h1>Privacy Policy</h1>
+        <p class="lead">
+          FieldConvert is a utility-focused unit conversion tool. Its purpose is to help you convert measurements quickly and practically. This privacy policy explains, in plain language, the type of information FieldConvert may handle and the product approach behind that handling.
+        </p>
+        <div class="meta" aria-label="Policy metadata">
+          <span class="chip">Effective date: 2026-03-21</span>
+          <span class="chip">Primary language: English</span>
+          <span class="chip">Website: changok89.github.io</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap layout">
+      <aside class="hero-card toc" aria-label="Table of contents">
+        <h3>Contents</h3>
+        <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#data-we-handle">Information FieldConvert may handle</a></li>
+          <li><a href="#how-we-use">How information is used</a></li>
+          <li><a href="#offline-storage">Offline-ready storage</a></li>
+          <li><a href="#sharing">Data sharing and third parties</a></li>
+          <li><a href="#retention">Retention and deletion</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#children">Children’s privacy</a></li>
+          <li><a href="#international">International use and language</a></li>
+          <li><a href="#changes">Policy changes</a></li>
+          <li><a href="#contact">Contact and support</a></li>
+        </ol>
+      </aside>
+
+      <article class="content-card">
+        <section id="overview">
+          <h2>1. Overview</h2>
+          <p>
+            FieldConvert is designed around a simple job: helping users convert values between measurement systems such as metric, US, and imperial. Because the product is utility-focused, the privacy goal is also straightforward: keep data handling limited, practical, and proportionate to the features being offered.
+          </p>
+          <p>
+            The product is intended to support core conversion behavior with minimal dependence on continuous connectivity. That means core use may rely primarily on local resources rather than constant network activity.
+          </p>
+        </section>
+
+        <section id="data-we-handle">
+          <h2>2. Information FieldConvert may handle</h2>
+          <p>Depending on the features you use, FieldConvert may handle the following categories of information:</p>
+          <ul>
+            <li>conversion inputs you enter into the product</li>
+            <li>recent conversion history saved on your device</li>
+            <li>favorites and saved presets you create</li>
+            <li>product preferences, such as selected unit-system defaults and language settings</li>
+            <li>basic technical information required for the product to function reliably on your device</li>
+          </ul>
+          <p>
+            FieldConvert is not presented as a social platform, messaging service, or behavioral advertising product. The product direction is practical utility, not broad personal profiling.
+          </p>
+        </section>
+
+        <section id="how-we-use">
+          <h2>3. How information is used</h2>
+          <p>Information handled by FieldConvert may be used to:</p>
+          <ul>
+            <li>perform conversions you request</li>
+            <li>remember your preferred unit system, such as Metric, US, or Imperial</li>
+            <li>show your recent history, saved favorites, and saved presets</li>
+            <li>support language availability where product resources exist</li>
+            <li>maintain reliability, troubleshoot issues, and improve the product over time</li>
+          </ul>
+          <p>
+            The product intent is functional convenience. Data use should align with utility features rather than unrelated marketing behavior.
+          </p>
+        </section>
+
+        <section id="offline-storage">
+          <h2>4. Offline-ready storage</h2>
+          <p>
+            FieldConvert is designed so key utility flows can remain useful without requiring continuous connectivity. As part of that design, some information such as history, favorites, presets, and settings may be stored locally on your device.
+          </p>
+          <p>
+            Local storage allows the product to reopen in a familiar state and helps repeat tasks take fewer steps. Where data is stored locally for product functionality, it is generally used to support your direct use of FieldConvert rather than to build a broader profile about you.
+          </p>
+        </section>
+
+        <section id="sharing">
+          <h2>5. Data sharing and third parties</h2>
+          <p>
+            Based on the current FieldConvert product direction reflected in this repository, FieldConvert is not presented as a data-broker, social-sharing, or ad-targeting product.
+          </p>
+          <p>
+            If third-party services are introduced in the future for analytics, crash reporting, support workflows, hosting, or infrastructure, this policy should be updated to describe those services and the relevant data categories more specifically.
+          </p>
+        </section>
+
+        <section id="retention">
+          <h2>6. Retention and deletion</h2>
+          <p>
+            Information that exists only in local product storage may remain on your device until you remove it, clear product data, or delete the product from your device.
+          </p>
+          <p>
+            If future versions of FieldConvert add cloud-backed features or support channels that collect submitted information, retention periods should be documented more explicitly at that time.
+          </p>
+        </section>
+
+        <section id="security">
+          <h2>7. Security</h2>
+          <p>
+            Reasonable efforts should be taken to protect information handled by FieldConvert. However, no software environment can promise absolute security. You should avoid using a general utility product like FieldConvert to store highly sensitive personal, financial, medical, or regulated information unless the product is clearly redesigned and documented for that purpose.
+          </p>
+        </section>
+
+        <section id="children">
+          <h2>8. Children’s privacy</h2>
+          <p>
+            FieldConvert is a general-purpose utility product and is not specifically directed to children. The current product direction does not rely on child-oriented engagement patterns or sensitive-profile features.
+          </p>
+        </section>
+
+        <section id="international">
+          <h2>9. International use and language</h2>
+          <p>
+            Public-facing FieldConvert documentation is maintained in English for consistency. If additional language support is introduced, this policy may be updated to reflect those changes more specifically.
+          </p>
+        </section>
+
+        <section id="changes">
+          <h2>10. Policy changes</h2>
+          <p>
+            This privacy policy may be updated as FieldConvert evolves. If the product adds materially different data practices, networked services, or support workflows, the policy should be revised to reflect those changes more specifically.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>11. Contact and support</h2>
+          <p>
+            For general help, troubleshooting, or policy-related questions about FieldConvert, visit <a href="https://changok89.github.io/">https://changok89.github.io/</a> or email <a href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a>.
+          </p>
+          <div class="note-card">
+            <h3>Important note</h3>
+            <p>
+              This policy is written to match the current repository-visible product direction: a practical, utility-focused conversion product with local history, favorites, presets, and unit-system preferences. If deployment details or external services change, this document should be updated before public release.
+            </p>
+          </div>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Last updated: 2026-03-21 | <a href="marketing-overview.html">Overview</a> | <a href="support.html">Support</a> | <a href="https://changok89.github.io/">Website</a>
+    </div>
+  </footer>
+</body>
+</html>

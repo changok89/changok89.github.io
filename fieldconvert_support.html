@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FieldConvert Support</title>
+  <meta name="description" content="Support information for FieldConvert, a practical unit conversion tool." />
+  <style>
+    :root {
+      --bg: #0d1321;
+      --panel: #121b2d;
+      --panel-soft: #19253a;
+      --line: rgba(181, 198, 219, 0.16);
+      --text: #f8fbff;
+      --muted: #bed0e3;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --link: #ffd89a;
+      --radius: 24px;
+      --max: 1080px;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.14), transparent 24%),
+        radial-gradient(circle at left, rgba(96, 165, 250, 0.10), transparent 20%),
+        linear-gradient(180deg, #0d1321 0%, #11192a 100%);
+      line-height: 1.68;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 28px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(13, 19, 33, 0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #fde68a, #f59e0b);
+      color: #4a3000;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 56px 0 24px;
+    }
+
+    .hero-grid,
+    .cards,
+    .faq-grid,
+    .footer-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-grid { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer-grid { grid-template-columns: 1.1fr 0.9fr; }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(25, 37, 58, 0.94), rgba(18, 27, 45, 0.94));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main,
+    .hero-side,
+    .card,
+    .faq,
+    .footer-card {
+      padding: 26px;
+    }
+
+    h1, h2, h3 { line-height: 1.12; letter-spacing: -0.03em; margin: 0 0 12px; }
+    h1 { font-size: clamp(2.15rem, 4vw, 4rem); }
+    h2 { font-size: clamp(1.5rem, 2.5vw, 2.3rem); }
+    h3 { font-size: 1.08rem; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #ffd38b;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .lead,
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      max-width: 58ch;
+    }
+
+    .checklist {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .metric {
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric-box {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .metric-box strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+      color: #fff4d6;
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-head { margin-bottom: 18px; }
+
+    .card,
+    .faq {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .callout {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.18);
+      color: #ffe9be;
+    }
+
+    footer {
+      padding: 20px 0 56px;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .cards,
+      .faq-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-main,
+      .hero-side,
+      .card,
+      .faq,
+      .footer-card { padding: 20px; }
+      .nav-inner { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="marketing-overview.html">
+        <span class="brand-mark">⇄</span>
+        <span>FieldConvert</span>
+      </a>
+      <nav class="nav-links" aria-label="Public pages">
+        <a href="marketing-overview.html">Overview</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <article class="panel hero-main">
+          <div class="eyebrow">Support for a utility product that stays focused</div>
+          <h1>Need help with FieldConvert?</h1>
+          <p class="lead">
+            This page covers the practical basics: what FieldConvert is meant to do, what to check first if something feels off, and what information is useful when reporting a problem.
+          </p>
+          <ul class="checklist">
+            <li>FieldConvert is built around unit conversion, not account-heavy workflows.</li>
+            <li>The product is intended to remain useful for core conversion tasks even in limited-connectivity situations.</li>
+            <li>Measurement system defaults may differ depending on whether you use Metric, US, or Imperial preference mode.</li>
+          </ul>
+          <div class="callout">
+            If a result looks unexpected, first verify the selected category, from and to units, rounding mode, and active unit-system preference. Those settings explain most incorrect conversion reports.
+          </div>
+        </article>
+
+        <aside class="panel hero-side">
+          <h3>Before you report an issue</h3>
+          <div class="metric">
+            <div class="metric-box">
+              <strong>1. Check the pair</strong>
+              <span>Make sure the selected source and destination units match what you intended.</span>
+            </div>
+            <div class="metric-box">
+              <strong>2. Check defaults</strong>
+              <span>Metric, US, and Imperial preferences can influence suggested pairs and starting selections.</span>
+            </div>
+            <div class="metric-box">
+              <strong>3. Check precision</strong>
+              <span>Decimals and rounding mode can change how results are displayed.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Common support topics</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Conversion result seems off</h3>
+            <p>
+              Confirm that you chose the correct unit category and the intended from and to pair. Similar symbols across systems can cause accidental pair mismatches.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Product opened with different defaults</h3>
+            <p>
+              Check the selected unit-system preference in settings. FieldConvert supports Metric, US, and Imperial handling, and the chosen preference affects defaults and suggestions.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Saved items are missing</h3>
+            <p>
+              Favorites, history, presets, and preferences are part of the product’s practical on-device workflow. If they disappear, note your device details, product version, and what happened immediately before the issue.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap panel" style="padding: 26px;">
+        <div class="section-head">
+          <h2>What to include in a support request</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Device details</h3>
+            <p>Include your device model and software version if available.</p>
+          </article>
+          <article class="card">
+            <h3>Exact conversion context</h3>
+            <p>Share the category, input value, source unit, target unit, and selected precision or rounding mode.</p>
+          </article>
+          <article class="card">
+            <h3>What you expected</h3>
+            <p>Describe the expected result and why it seemed incorrect, incomplete, or confusing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap panel" style="padding: 26px;">
+        <div class="section-head">
+          <h2>Contact</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Email support</h3>
+            <p><a href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a></p>
+          </article>
+          <article class="card">
+            <h3>Website</h3>
+            <p><a href="https://changok89.github.io/">https://changok89.github.io/</a></p>
+          </article>
+          <article class="card">
+            <h3>Best way to report</h3>
+            <p>Include the exact steps, conversion pair, expected result, and device details so the issue can be reproduced clearly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq-grid">
+          <article class="faq">
+            <h3>Does FieldConvert need sign-in?</h3>
+            <p>
+              The current product direction is utility-first and does not revolve around account-heavy interaction. Support materials here are written for that lightweight usage model.
+            </p>
+          </article>
+          <article class="faq">
+            <h3>Does the product work offline?</h3>
+            <p>
+              FieldConvert is designed so key conversion flows remain useful even without a stable network connection.
+            </p>
+          </article>
+          <article class="faq">
+            <h3>Which languages are supported?</h3>
+            <p>
+              Public-facing documentation is maintained in English for consistency.
+            </p>
+          </article>
+          <article class="faq">
+            <h3>What if Imperial and US behavior feels similar?</h3>
+            <p>
+              In some categories, the currently bundled unit catalog may not fully diverge between all non-metric datasets. FieldConvert keeps the preference explicit while using available accurate defaults.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div class="panel footer-card">
+        <h3>Support note</h3>
+        <p>
+          This support page is intentionally practical and product-specific. It provides a direct support email and website that can be used across public release channels.
+        </p>
+        <p>
+          Contact: <a href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a><br />
+          Website: <a href="https://changok89.github.io/">https://changok89.github.io/</a>
+        </p>
+      </div>
+      <div class="panel footer-card">
+        <h3>Related pages</h3>
+        <p><a href="marketing-overview.html">Marketing / Overview</a></p>
+        <p><a href="privacy-policy.html">Privacy Policy</a></p>
+        <p><a href="https://changok89.github.io/">Website</a></p>
+        <p style="color: var(--muted); margin-top: 18px;">Last updated: 2026-03-21</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
