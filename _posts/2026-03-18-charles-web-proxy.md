@@ -1,16 +1,18 @@
 ---
-title: "Charles Web Proxy 사용법"
-excerpt: "모바일 앱 디버깅에서 Charles는 요청과 응답을 눈으로 확인할 수 있게 해주는 가장 실전적인 도구 중 하나다. 설치부터 iPhone 연결, HTTPS 복호화, 자주 막히는 지점까지 정리한다."
+title: Charles Web Proxy 사용법
+excerpt: 모바일 앱 디버깅에서 Charles는 요청과 응답을 눈으로 확인할 수 있게 해주는 가장 실전적인 도구 중 하나다. 설치부터 iPhone
+  연결, HTTPS 복호화, 자주 막히는 지점까지 정리한다.
 categories:
-  - Proxy
+- Proxy
 tags:
-  - Charles
-  - Proxy
-  - iOS
-  - Debugging
-  - Mobile
+- Charles
+- Proxy
+- iOS
+- Debugging
+- Mobile
 toc: true
 toc_sticky: true
+toc_label: Charles Web Proxy 사용법
 date: 2026-03-18
 last_modified_at: 2026-03-18
 ---

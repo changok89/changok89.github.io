@@ -1,15 +1,17 @@
 ---
-title: "iOS Developer Mode 활성화 방법"
-excerpt: "iOS 16 이후 기기 테스트를 하려면 Developer Mode가 꼭 필요하다. 메뉴 위치만이 아니라 연결, 승인, 재부팅, 재확인까지 실무 기준으로 정리한다."
+title: iOS Developer Mode 활성화 방법
+excerpt: iOS 16 이후 기기 테스트를 하려면 Developer Mode가 꼭 필요하다. 메뉴 위치만이 아니라 연결, 승인, 재부팅, 재확인까지
+  실무 기준으로 정리한다.
 categories:
-  - iOS
+- iOS
 tags:
-  - iOS
-  - Developer Mode
-  - Xcode
-  - Device Testing
+- iOS
+- Developer Mode
+- Xcode
+- Device Testing
 toc: true
 toc_sticky: true
+toc_label: iOS Developer Mode 활성화 방법
 date: 2026-03-18
 last_modified_at: 2026-03-18
 ---

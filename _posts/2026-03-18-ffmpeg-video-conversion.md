@@ -1,19 +1,20 @@
 ---
-title: "ffmpeg로 동영상 변환 및 저장"
-excerpt: "앱 시연 영상, QA 재현 영상, 테스트 스트림을 정리할 때 ffmpeg를 알고 있으면 훨씬 빠르다. 포맷 변환, 재인코딩, 용량 줄이기, m3u8 저장까지 실무 기준으로 정리한다."
+title: ffmpeg로 동영상 변환 및 저장
+excerpt: 앱 시연 영상, QA 재현 영상, 테스트 스트림을 정리할 때 ffmpeg를 알고 있으면 훨씬 빠르다. 포맷 변환, 재인코딩, 용량
+  줄이기, m3u8 저장까지 실무 기준으로 정리한다.
 categories:
-  - Utility
+- Utility
 tags:
-  - ffmpeg
-  - Video
-  - QA
-  - Mobile
-  - Media
+- ffmpeg
+- Video
+- QA
+- Mobile
+- Media
 toc: true
 toc_sticky: true
+toc_label: ffmpeg 변환 가이드
 date: 2026-03-18
 last_modified_at: 2026-03-21
-toc_label: ffmpeg 변환 가이드
 ---
 
 # ffmpeg로 동영상 변환 및 저장

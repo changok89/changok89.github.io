@@ -1,15 +1,17 @@
 ---
-title: "Android USB Debugging 활성화"
-excerpt: "안드로이드 USB 디버깅은 스위치 하나의 문제가 아니라 개발자 옵션, 케이블, RSA 승인, ADB 상태가 같이 움직이는 설정이다. 실무 기준으로 정리한다."
+title: Android USB Debugging 활성화
+excerpt: 안드로이드 USB 디버깅은 스위치 하나의 문제가 아니라 개발자 옵션, 케이블, RSA 승인, ADB 상태가 같이 움직이는 설정이다.
+  실무 기준으로 정리한다.
 categories:
-  - Android
+- Android
 tags:
-  - Android
-  - USB Debugging
-  - ADB
-  - Device Testing
+- Android
+- USB Debugging
+- ADB
+- Device Testing
 toc: true
 toc_sticky: true
+toc_label: Android USB Debugging 활성화
 date: 2026-03-18
 last_modified_at: 2026-03-18
 ---

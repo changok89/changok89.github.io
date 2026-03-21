@@ -1,19 +1,20 @@
 ---
-title: "SwiftUI Keyboard Avoidance"
-excerpt: "SwiftUI는 기본 keyboard avoidance를 제공하지만, 실제 프로젝트에서는 ScrollView, safe area, WebView, 하단 고정 버튼이 섞이면서 오히려 더 미묘한 버그가 나온다. 실무 관점에서 정리한다."
+title: SwiftUI Keyboard Avoidance
+excerpt: SwiftUI는 기본 keyboard avoidance를 제공하지만, 실제 프로젝트에서는 ScrollView, safe area,
+  WebView, 하단 고정 버튼이 섞이면서 오히려 더 미묘한 버그가 나온다. 실무 관점에서 정리한다.
 categories:
-  - iOS
+- iOS
 tags:
-  - SwiftUI
-  - Keyboard
-  - iOS
-  - Layout
-  - WebView
+- SwiftUI
+- Keyboard
+- iOS
+- Layout
+- WebView
 toc: true
 toc_sticky: true
+toc_label: SwiftUI Keyboard Avoidance
 date: 2026-03-18
 last_modified_at: 2026-03-21
-toc_label: SwiftUI Keyboard Avoidance
 ---
 
 # SwiftUI Keyboard Avoidance

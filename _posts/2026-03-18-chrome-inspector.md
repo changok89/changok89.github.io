@@ -1,19 +1,20 @@
 ---
-title: "Chrome Inspector 사용법"
-excerpt: "안드로이드 실기기나 WebView에서만 보이는 문제는 PC 브라우저만으로 잡기 어렵다. ADB 연결부터 chrome://inspect, WebView 디버깅 설정까지 실무 기준으로 정리한다."
+title: Chrome Inspector 사용법
+excerpt: 안드로이드 실기기나 WebView에서만 보이는 문제는 PC 브라우저만으로 잡기 어렵다. ADB 연결부터 chrome://inspect,
+  WebView 디버깅 설정까지 실무 기준으로 정리한다.
 categories:
-  - Inspector
+- Inspector
 tags:
-  - Chrome
-  - Inspector
-  - Android
-  - WebView
-  - Debugging
+- Chrome
+- Inspector
+- Android
+- WebView
+- Debugging
 toc: true
 toc_sticky: true
+toc_label: Chrome Inspector 사용법
 date: 2026-03-18
 last_modified_at: 2026-03-21
-toc_label: Chrome Inspector 사용법
 ---
 
 # Chrome Inspector 사용법

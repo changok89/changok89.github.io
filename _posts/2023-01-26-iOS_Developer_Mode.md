@@ -1,16 +1,16 @@
 ---
-title:  "iOS Developer Mode 활성화 방법"
-excerpt: "iPhone과 iPad에서 Developer Mode를 켜고, 왜 필요한지와 언제 꺼도 되는지 정리"
-
+title: iOS Developer Mode 활성화 방법
+excerpt: iPhone과 iPad에서 Developer Mode를 켜고, 왜 필요한지와 언제 꺼도 되는지 정리
 categories:
-  - iOS
+- iOS
 tags:
-  - [iOS, Developer Mode, Xcode, Test]
-
+- iOS
+- Developer Mode
+- Xcode
+- Test
 toc: true
- toc_sticky : true
-toc_label : iOS Developer Mode
-
+toc_sticky: true
+toc_label: iOS Developer Mode
 date: 2023-01-26
 last_modified_at: 2026-03-21
 ---

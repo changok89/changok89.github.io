@@ -1,19 +1,20 @@
 ---
-title: "Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법"
-excerpt: "사내 개발 서버나 로컬 테스트 환경에서 자주 만나는 인증서 오류다. thisisunsafe 같은 임시 우회부터 mkcert 기반의 근본 해결까지 개발 환경 기준으로 정리한다."
+title: Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법
+excerpt: 사내 개발 서버나 로컬 테스트 환경에서 자주 만나는 인증서 오류다. thisisunsafe 같은 임시 우회부터 mkcert 기반의
+  근본 해결까지 개발 환경 기준으로 정리한다.
 categories:
-  - Browser
+- Browser
 tags:
-  - Chrome
-  - TLS
-  - Certificate
-  - HTTPS
-  - Security
+- Chrome
+- TLS
+- Certificate
+- HTTPS
+- Security
 toc: true
 toc_sticky: true
+toc_label: Chrome 인증서 오류 해결
 date: 2026-03-18
 last_modified_at: 2026-03-21
-toc_label: Chrome 인증서 오류 해결
 ---
 
 # Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법

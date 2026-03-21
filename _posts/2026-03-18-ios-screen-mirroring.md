@@ -1,19 +1,20 @@
 ---
-title: "iOS 화면 미러링"
-excerpt: "앱 데모, QA 재현, 교육용 시연에서 iPhone 화면을 크게 보여줘야 할 때가 있다. QuickTime, AirPlay, 서드파티 도구를 어떤 상황에서 고르면 좋은지 실무 기준으로 정리한다."
+title: iOS 화면 미러링
+excerpt: 앱 데모, QA 재현, 교육용 시연에서 iPhone 화면을 크게 보여줘야 할 때가 있다. QuickTime, AirPlay, 서드파티
+  도구를 어떤 상황에서 고르면 좋은지 실무 기준으로 정리한다.
 categories:
-  - Utility
+- Utility
 tags:
-  - iOS
-  - Mirroring
-  - QuickTime
-  - AirPlay
-  - Demo
+- iOS
+- Mirroring
+- QuickTime
+- AirPlay
+- Demo
 toc: true
 toc_sticky: true
+toc_label: iOS 화면 미러링
 date: 2026-03-18
 last_modified_at: 2026-03-21
-toc_label: iOS 화면 미러링
 ---
 
 # iOS 화면 미러링
