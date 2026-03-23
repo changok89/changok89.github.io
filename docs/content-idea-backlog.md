@@ -1,6 +1,6 @@
 # Content Idea Backlog
 
-Updated: 2026-03-22
+Updated: 2026-03-24
 
 ## Source pools to monitor
 
@@ -50,7 +50,7 @@ Updated: 2026-03-22
 ### 8. 반복 작업은 프롬프트보다 템플릿과 skill이 더 오래 간다
 - Source angle: prompt reuse vs modular skill design
 - Why it fits: 블로그 글쓰기/리뷰/운영 점검에 모두 적용 가능
-- Status: candidate
+- Status: drafted
 
 ## Writing queue suggestion
 
