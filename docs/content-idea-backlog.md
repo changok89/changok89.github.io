@@ -30,7 +30,7 @@ Updated: 2026-03-24
 ### 4. 에이전트 자동화에서 실패 복구를 먼저 설계해야 하는 이유
 - Source angle: harness engineering, operations, watchdog/restart patterns
 - Why it fits: 실제 Telegram stall / timer / service recovery 경험과 연결됨
-- Status: candidate
+- Status: drafted
 
 ### 5. 온디바이스 AI는 메인 모델이 아니라 보조 계층으로 둘 때 더 실용적이다
 - Source angle: on-device AI workflow design
