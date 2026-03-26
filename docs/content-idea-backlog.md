@@ -45,7 +45,7 @@ Updated: 2026-03-24
 ### 7. Codex를 코드 자동완성 도구가 아니라 작업기로 쓰는 방법
 - Source angle: Codex for software engineers
 - Why it fits: OpenClaw / Codex 역할 분리 글과 연결 가능
-- Status: candidate
+- Status: drafted
 
 ### 8. 반복 작업은 프롬프트보다 템플릿과 skill이 더 오래 간다
 - Source angle: prompt reuse vs modular skill design
