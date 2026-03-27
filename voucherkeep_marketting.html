@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoucherKeep - Offline Travel Voucher Wallet</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f5f1e8;
+            --surface: rgba(255, 252, 246, 0.84);
+            --surface-strong: #fffaf1;
+            --text: #1f2a37;
+            --muted: #5e6b78;
+            --line: rgba(31, 42, 55, 0.12);
+            --accent: #0b77b7;
+            --accent-strong: #094d74;
+            --accent-soft: rgba(11, 119, 183, 0.12);
+            --warm-soft: rgba(252, 214, 130, 0.2);
+            --shadow: 0 24px 60px rgba(22, 34, 51, 0.08);
+            --radius-xl: 32px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+            --content-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Pretendard", "Noto Sans KR", "Noto Sans JP", "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(11, 119, 183, 0.15), transparent 30%),
+                radial-gradient(circle at top right, rgba(255, 190, 92, 0.22), transparent 28%),
+                linear-gradient(180deg, #f7f3ea 0%, #f3eee4 48%, #f7f4ee 100%);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            width: min(calc(100% - 32px), var(--content-width));
+            margin: 0 auto;
+            padding: 20px 0 48px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            margin-top: 8px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 250, 241, 0.75);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 10px 30px rgba(22, 34, 51, 0.05);
+            position: sticky;
+            top: 14px;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .brand-mark {
+            font-size: 0.76rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .brand-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links,
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link,
+        .lang-button,
+        .cta-button {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.62);
+            color: var(--muted);
+            border-radius: 999px;
+            padding: 9px 14px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+        }
+
+        .nav-link:hover,
+        .lang-button:hover,
+        .cta-button:hover {
+            transform: translateY(-1px);
+            color: var(--accent-strong);
+            border-color: rgba(11, 119, 183, 0.22);
+        }
+
+        .nav-link.is-current,
+        .lang-button.is-active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: calc(100svh - 120px);
+            margin-top: 18px;
+            padding: clamp(32px, 6vw, 64px);
+            border-radius: var(--radius-xl);
+            background:
+                radial-gradient(circle at 16% 24%, rgba(109, 205, 255, 0.36), transparent 32%),
+                radial-gradient(circle at 80% 14%, rgba(252, 214, 130, 0.26), transparent 22%),
+                linear-gradient(135deg, #08293b 0%, #0a6088 36%, #dfece3 100%);
+            color: #f9fcff;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            gap: 32px;
+            align-items: end;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            width: 320px;
+            height: 320px;
+            right: -120px;
+            top: -60px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero::after {
+            width: 240px;
+            height: 240px;
+            left: 48%;
+            bottom: -110px;
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .hero-copy,
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            font-size: 0.86rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            margin: 18px 0 16px;
+            font-size: clamp(2.8rem, 7vw, 6rem);
+            line-height: 0.92;
+            letter-spacing: -0.065em;
+            max-width: 7ch;
+        }
+
+        .hero p {
+            margin: 0;
+            max-width: 580px;
+            font-size: clamp(1rem, 2vw, 1.16rem);
+            line-height: 1.78;
+            color: rgba(248, 252, 255, 0.86);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 26px;
+        }
+
+        .cta-button.primary {
+            background: #fff;
+            color: #0f3550;
+            border-color: #fff;
+        }
+
+        .cta-button.secondary {
+            background: rgba(7, 26, 40, 0.24);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        .hero-stats {
+            display: grid;
+            gap: 14px;
+            align-self: stretch;
+        }
+
+        .stat-card {
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            background: rgba(7, 26, 40, 0.24);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(14px);
+        }
+
+        .stat-card strong {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.64);
+        }
+
+        .stat-card span {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.18rem;
+            line-height: 1.45;
+            font-weight: 700;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.78fr);
+            gap: 24px;
+            margin-top: 26px;
+        }
+
+        .panel,
+        .aside-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+        }
+
+        .panel {
+            background: var(--surface);
+            backdrop-filter: blur(14px);
+        }
+
+        .section-block {
+            padding: 30px;
+        }
+
+        .section-block + .section-block {
+            border-top: 1px solid var(--line);
+        }
+
+        .section-kicker {
+            margin: 0 0 10px;
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .section-block h2 {
+            margin: 0;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            line-height: 1.18;
+            letter-spacing: -0.035em;
+        }
+
+        .section-block p,
+        .section-block li {
+            color: var(--muted);
+            line-height: 1.78;
+            font-size: 1rem;
+        }
+
+        .feature-list,
+        .detail-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .feature-list li,
+        .detail-list li {
+            padding: 18px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .feature-list li:first-child,
+        .detail-list li:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .feature-title {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 1.02rem;
+        }
+
+        .aside-stack {
+            display: grid;
+            gap: 24px;
+        }
+
+        .aside-card {
+            padding: 28px;
+            background: var(--surface-strong);
+        }
+
+        .aside-card h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            letter-spacing: -0.03em;
+        }
+
+        .aside-card p,
+        .aside-card li {
+            color: var(--muted);
+            line-height: 1.72;
+        }
+
+        .value-box {
+            margin-top: 18px;
+            padding: 18px 20px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(180deg, rgba(11, 119, 183, 0.1), rgba(252, 214, 130, 0.14));
+            border: 1px solid rgba(11, 119, 183, 0.1);
+        }
+
+        .closing-cta {
+            margin-top: 26px;
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-xl);
+            background:
+                linear-gradient(135deg, rgba(11, 119, 183, 0.08), rgba(252, 214, 130, 0.14)),
+                var(--surface-strong);
+            box-shadow: var(--shadow);
+        }
+
+        .closing-cta h2 {
+            margin: 0;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            line-height: 1.12;
+            letter-spacing: -0.04em;
+        }
+
+        .closing-cta p {
+            max-width: 680px;
+            color: var(--muted);
+            line-height: 1.78;
+        }
+
+        .closing-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang].is-visible {
+            display: block;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 26px;
+            padding: 18px 6px 8px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 980px) {
+            .topbar {
+                border-radius: 24px;
+                align-items: flex-start;
+            }
+
+            .hero,
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .page-shell {
+                width: min(calc(100% - 20px), var(--content-width));
+                padding-top: 10px;
+            }
+
+            .topbar,
+            .topbar-right {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links,
+            .language-switcher {
+                width: 100%;
+            }
+
+            .nav-link,
+            .lang-button {
+                flex: 1 1 0;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero,
+            .section-block,
+            .aside-card,
+            .closing-cta {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero h1 {
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar" aria-label="VoucherKeep page navigation">
+            <div class="brand">
+                <span class="brand-mark">VoucherKeep</span>
+                <span class="brand-name">Offline travel voucher companion</span>
+            </div>
+            <div class="topbar-right">
+                <nav class="nav-links" aria-label="Page links">
+                    <a class="nav-link" href="./voucherkeep_support.html">Support</a>
+                    <a class="nav-link" href="./voucherkeep_privacy-policy.html">Privacy</a>
+                    <a class="nav-link is-current" href="./voucherkeep_marketting.html">Marketing</a>
+                </nav>
+                <div class="language-switcher" aria-label="Language switcher">
+                    <button class="lang-button" type="button" data-lang-button="ko">한국어</button>
+                    <button class="lang-button" type="button" data-lang-button="en">English</button>
+                    <button class="lang-button" type="button" data-lang-button="ja">日本語</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-copy">
+                    <span class="eyebrow">Offline travel wallet</span>
+                    <h1 data-lang="ko">바우처를 가장 빠르게,<br>가장 차분하게.</h1>
+                    <h1 data-lang="en">Your vouchers,<br>ready before the signal drops.</h1>
+                    <h1 data-lang="ja">電波がなくても、<br>バウチャーはすぐ手元に。</h1>
+                    <p data-lang="ko">VoucherKeep은 여행 중 필요한 바우처, PDF, 이미지, 예약 정보를 오프라인에서도 바로 꺼내볼 수 있도록 정리해 주는 가벼운 여행 지갑입니다.</p>
+                    <p data-lang="en">VoucherKeep is a lightweight travel wallet that keeps your vouchers, PDFs, images, and reservation details ready for fast offline access when you actually need them.</p>
+                    <p data-lang="ja">VoucherKeep は、旅行中に必要なバウチャー、PDF、画像、予約情報を、オフラインでもすぐ確認できるよう整理する軽量なトラベルウォレットです。</p>
+                    <div class="hero-actions">
+                        <a class="cta-button primary" href="./voucherkeep_support.html" data-lang="ko">지원 페이지 보기</a>
+                        <a class="cta-button primary" href="./voucherkeep_support.html" data-lang="en">Open support page</a>
+                        <a class="cta-button primary" href="./voucherkeep_support.html" data-lang="ja">サポートを見る</a>
+                        <a class="cta-button secondary" href="./voucherkeep_privacy-policy.html" data-lang="ko">개인정보 처리방침</a>
+                        <a class="cta-button secondary" href="./voucherkeep_privacy-policy.html" data-lang="en">Privacy policy</a>
+                        <a class="cta-button secondary" href="./voucherkeep_privacy-policy.html" data-lang="ja">プライバシーポリシー</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div data-lang="ko">
+                                <strong>Offline first</strong>
+                                <span>연결이 불안정한 공항, 기내, 해외 현지에서도 바로 확인</span>
+                            </div>
+                            <div data-lang="en">
+                                <strong>Offline first</strong>
+                                <span>Fast access in airports, on flights, or anywhere the connection is unstable</span>
+                            </div>
+                            <div data-lang="ja">
+                                <strong>Offline first</strong>
+                                <span>空港、機内、海外現地など通信が不安定でもすぐ確認</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div data-lang="ko">
+                                <strong>Fast reading</strong>
+                                <span>PDF를 최적화된 이미지 형태로 정리해 빠르게 열람</span>
+                            </div>
+                            <div data-lang="en">
+                                <strong>Fast reading</strong>
+                                <span>Optimized viewing by turning heavy PDFs into quick image-based assets</span>
+                            </div>
+                            <div data-lang="ja">
+                                <strong>Fast reading</strong>
+                                <span>重い PDF を見やすい画像アセットへ最適化して高速表示</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div data-lang="ko">
+                                <strong>Travel utility</strong>
+                                <span>예약 번호, 바코드, 확인 화면을 한 앱 안에서 정리</span>
+                            </div>
+                            <div data-lang="en">
+                                <strong>Travel utility</strong>
+                                <span>Reservation numbers, barcodes, and proof screens collected in one place</span>
+                            </div>
+                            <div data-lang="ja">
+                                <strong>Travel utility</strong>
+                                <span>予約番号、バーコード、確認画面を一つのアプリに整理</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="main-grid">
+                <div class="panel">
+                    <div class="section-block">
+                        <p class="section-kicker">Why it exists</p>
+                        <h2 data-lang="ko">복잡한 여행 문서를 바로 보여주는 방식으로 다시 정리했습니다.</h2>
+                        <h2 data-lang="en">Built to make messy travel documents readable in seconds.</h2>
+                        <h2 data-lang="ja">散らばる旅行書類を、数秒で確認できる形に整えます。</h2>
+                        <p data-lang="ko">이메일 첨부 PDF, 캡처 이미지, 바코드 화면은 여행 당일 가장 필요한 순간에 찾기 어렵습니다. VoucherKeep은 그 자료를 오프라인 기준으로 정리해, 줄 서 있는 상황에서도 빠르게 보여줄 수 있게 돕습니다.</p>
+                        <p data-lang="en">Travel-day documents often live across PDFs, screenshots, and confirmation emails. VoucherKeep organizes them around the moment of use, so you can open what matters quickly, even while standing in line.</p>
+                        <p data-lang="ja">旅行当日に必要な書類は、PDF、スクリーンショット、確認メールなどに散らばりがちです。VoucherKeep は利用する瞬間を基準に整理し、並んでいる最中でもすぐ開けるようにします。</p>
+                    </div>
+
+                    <div class="section-block">
+                        <p class="section-kicker">Core features</p>
+                        <h2 data-lang="ko">핵심 기능</h2>
+                        <h2 data-lang="en">Core features</h2>
+                        <h2 data-lang="ja">主な機能</h2>
+                        <ul class="feature-list" data-lang="ko">
+                            <li>
+                                <strong class="feature-title">오프라인 접근</strong>
+                                인터넷 연결이 없어도 필요한 바우처를 즉시 열람할 수 있습니다.
+                            </li>
+                            <li>
+                                <strong class="feature-title">PDF 최적화 저장</strong>
+                                무거운 PDF를 더 빠르게 읽을 수 있는 형태로 변환해 보관합니다.
+                            </li>
+                            <li>
+                                <strong class="feature-title">바코드 확인 지원</strong>
+                                예약 확인에 필요한 코드와 시각 정보를 한 화면에서 정리합니다.
+                            </li>
+                        </ul>
+                        <ul class="feature-list" data-lang="en">
+                            <li>
+                                <strong class="feature-title">Offline access</strong>
+                                Open your important vouchers even when there is no reliable internet connection.
+                            </li>
+                            <li>
+                                <strong class="feature-title">Optimized PDF handling</strong>
+                                Heavy PDFs are converted into a format that is easier and faster to read on the go.
+                            </li>
+                            <li>
+                                <strong class="feature-title">Barcode-friendly viewing</strong>
+                                Keep booking codes and visual proof screens together in one place.
+                            </li>
+                        </ul>
+                        <ul class="feature-list" data-lang="ja">
+                            <li>
+                                <strong class="feature-title">オフラインでの確認</strong>
+                                安定した通信がない状況でも、必要なバウチャーをすぐ開けます。
+                            </li>
+                            <li>
+                                <strong class="feature-title">PDF の最適化保存</strong>
+                                重い PDF を移動中でも読みやすい形式に変換して保管します。
+                            </li>
+                            <li>
+                                <strong class="feature-title">バーコード確認に配慮</strong>
+                                予約コードと確認画面を一か所にまとめて見やすくします。
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <p class="section-kicker">Travel flow</p>
+                        <h2 data-lang="ko">실제 사용 순간에 맞춘 흐름</h2>
+                        <h2 data-lang="en">Designed around real travel moments</h2>
+                        <h2 data-lang="ja">実際の旅行シーンを基準にした設計</h2>
+                        <ul class="detail-list" data-lang="ko">
+                            <li>체크인 전에 예약 확인서와 여권 사본을 빠르게 모아둘 수 있습니다.</li>
+                            <li>입장권이나 호텔 바우처를 네트워크 없이 바로 보여줄 수 있습니다.</li>
+                            <li>여행 후에는 필요한 기록만 남기고 앱 삭제와 함께 데이터를 정리할 수 있습니다.</li>
+                        </ul>
+                        <ul class="detail-list" data-lang="en">
+                            <li>Collect reservation confirmations and reference documents before check-in.</li>
+                            <li>Show tickets or hotel vouchers immediately without depending on network quality.</li>
+                            <li>Remove the app later and clear the stored data from the device when the trip is over.</li>
+                        </ul>
+                        <ul class="detail-list" data-lang="ja">
+                            <li>チェックイン前に予約確認書や参照資料をすばやくまとめられます。</li>
+                            <li>チケットやホテルバウチャーを通信状態に左右されずに提示できます。</li>
+                            <li>旅行後はアプリ削除とともに端末内データを整理できます。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <aside class="aside-stack">
+                    <div class="aside-card">
+                        <h3 data-lang="ko">VoucherKeep의 방향</h3>
+                        <h3 data-lang="en">What VoucherKeep prioritizes</h3>
+                        <h3 data-lang="ja">VoucherKeep が重視すること</h3>
+                        <p data-lang="ko">화려한 기능보다, 여행 중 바로 필요한 문서를 빠르게 여는 경험을 우선합니다. 그래서 화면은 단순하고, 저장 방식은 로컬 중심이며, 설명은 짧고 명확하게 유지합니다.</p>
+                        <p data-lang="en">It favors speed and clarity over feature overload. That means a simple interface, local-first storage, and short explanations that help when time matters.</p>
+                        <p data-lang="ja">多機能さよりも、旅行中に必要な書類を素早く開ける体験を優先します。そのため、画面はシンプルに、保存はローカル中心に、説明は短く明確に保ちます。</p>
+                        <div class="value-box" data-lang="ko">연결이 끊겨도 준비는 끊기지 않도록.</div>
+                        <div class="value-box" data-lang="en">Prepared even when the connection is not.</div>
+                        <div class="value-box" data-lang="ja">通信がなくても、準備は止まらないように。</div>
+                    </div>
+
+                    <div class="aside-card">
+                        <h3 data-lang="ko">함께 보기</h3>
+                        <h3 data-lang="en">Related pages</h3>
+                        <h3 data-lang="ja">関連ページ</h3>
+                        <ul class="detail-list" data-lang="ko">
+                            <li><a href="./voucherkeep_support.html">지원 페이지</a>에서 문의 방법과 FAQ를 확인할 수 있습니다.</li>
+                            <li><a href="./voucherkeep_privacy-policy.html">개인정보 처리방침</a>에서 데이터 처리 원칙을 확인할 수 있습니다.</li>
+                        </ul>
+                        <ul class="detail-list" data-lang="en">
+                            <li>The <a href="./voucherkeep_support.html">support page</a> explains contact methods and common questions.</li>
+                            <li>The <a href="./voucherkeep_privacy-policy.html">privacy policy</a> explains the app's data-handling model.</li>
+                        </ul>
+                        <ul class="detail-list" data-lang="ja">
+                            <li><a href="./voucherkeep_support.html">サポートページ</a>で問い合わせ方法と FAQ を確認できます。</li>
+                            <li><a href="./voucherkeep_privacy-policy.html">プライバシーポリシー</a>でデータ取り扱い方針を確認できます。</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="closing-cta">
+                <h2 data-lang="ko">오프라인에서도 바로 보여줄 수 있는 여행 지갑.</h2>
+                <h2 data-lang="en">A travel wallet built for moments when you need proof fast.</h2>
+                <h2 data-lang="ja">必要な瞬間に、すぐ提示できる旅行用ウォレット。</h2>
+                <p data-lang="ko">VoucherKeep은 저장보다 열람 순간을 더 중요하게 생각합니다. 여행 중 필요한 자료를 조용하고 빠르게 꺼낼 수 있도록, 기능과 인터페이스를 그 목적에 맞춰 정리했습니다.</p>
+                <p data-lang="en">VoucherKeep is less about storing files and more about opening the right proof at the right time. The interface and storage flow are both shaped around that travel-day need.</p>
+                <p data-lang="ja">VoucherKeep は、単に保存するためのアプリではなく、必要な証明書類を必要な瞬間に開くためのアプリです。UI と保存フローの両方を、その旅行当日の目的に合わせて設計しています。</p>
+                <div class="closing-actions">
+                    <a class="cta-button primary" href="./voucherkeep_support.html" data-lang="ko">문의하기</a>
+                    <a class="cta-button primary" href="./voucherkeep_support.html" data-lang="en">Contact support</a>
+                    <a class="cta-button primary" href="./voucherkeep_support.html" data-lang="ja">問い合わせる</a>
+                    <a class="cta-button secondary" href="./voucherkeep_privacy-policy.html" data-lang="ko">정책 보기</a>
+                    <a class="cta-button secondary" href="./voucherkeep_privacy-policy.html" data-lang="en">Read policy</a>
+                    <a class="cta-button secondary" href="./voucherkeep_privacy-policy.html" data-lang="ja">ポリシーを見る</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <span>© 2026 Kim Changok</span>
+            <span data-lang="ko">VoucherKeep Marketing Page</span>
+            <span data-lang="en">VoucherKeep Marketing Page</span>
+            <span data-lang="ja">VoucherKeep マーケティングページ</span>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            var supported = ["ko", "en", "ja"];
+            var storageKey = "voucherkeep-language";
+
+            function normalizeLanguage(value) {
+                if (!value) {
+                    return "ko";
+                }
+
+                var lower = value.toLowerCase();
+                if (lower.indexOf("ko") === 0) {
+                    return "ko";
+                }
+                if (lower.indexOf("ja") === 0) {
+                    return "ja";
+                }
+                if (lower.indexOf("en") === 0) {
+                    return "en";
+                }
+                return "ko";
+            }
+
+            function applyLanguage(lang) {
+                var active = supported.indexOf(lang) >= 0 ? lang : "ko";
+
+                document.documentElement.lang = active;
+
+                document.querySelectorAll("[data-lang]").forEach(function (node) {
+                    node.classList.toggle("is-visible", node.getAttribute("data-lang") === active);
+                });
+
+                document.querySelectorAll("[data-lang-button]").forEach(function (button) {
+                    button.classList.toggle("is-active", button.getAttribute("data-lang-button") === active);
+                });
+
+                localStorage.setItem(storageKey, active);
+            }
+
+            var preferred = normalizeLanguage(localStorage.getItem(storageKey) || navigator.language);
+            applyLanguage(preferred);
+
+            document.querySelectorAll("[data-lang-button]").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    applyLanguage(button.getAttribute("data-lang-button"));
+                });
+            });
+        }());
+    </script>
+</body>
+</html>

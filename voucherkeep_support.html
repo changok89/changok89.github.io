@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoucherKeep Support</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f5f1e8;
+            --bg-strong: #efe3cf;
+            --surface: rgba(255, 252, 246, 0.84);
+            --surface-strong: #fffaf1;
+            --text: #1f2a37;
+            --muted: #5e6b78;
+            --line: rgba(31, 42, 55, 0.12);
+            --accent: #0b77b7;
+            --accent-strong: #094d74;
+            --accent-soft: rgba(11, 119, 183, 0.12);
+            --shadow: 0 24px 60px rgba(22, 34, 51, 0.08);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --content-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Pretendard", "Noto Sans KR", "Noto Sans JP", "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(11, 119, 183, 0.14), transparent 30%),
+                radial-gradient(circle at top right, rgba(255, 190, 92, 0.22), transparent 26%),
+                linear-gradient(180deg, #f7f3ea 0%, #f3eee4 48%, #f7f4ee 100%);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            width: min(calc(100% - 32px), var(--content-width));
+            margin: 0 auto;
+            padding: 20px 0 48px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            margin-top: 8px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 250, 241, 0.75);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 10px 30px rgba(22, 34, 51, 0.05);
+            position: sticky;
+            top: 14px;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .brand-mark {
+            font-size: 0.76rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .brand-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links,
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link,
+        .lang-button {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.62);
+            color: var(--muted);
+            border-radius: 999px;
+            padding: 9px 14px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+        }
+
+        .nav-link:hover,
+        .lang-button:hover {
+            transform: translateY(-1px);
+            color: var(--accent-strong);
+            border-color: rgba(11, 119, 183, 0.22);
+        }
+
+        .nav-link.is-current,
+        .lang-button.is-active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            margin-top: 18px;
+            padding: clamp(36px, 6vw, 68px);
+            border-radius: var(--radius-xl);
+            background:
+                radial-gradient(circle at 18% 24%, rgba(110, 203, 255, 0.3), transparent 34%),
+                radial-gradient(circle at 86% 20%, rgba(255, 212, 128, 0.28), transparent 26%),
+                linear-gradient(135deg, #0f3550 0%, #0a739f 42%, #d6eee4 100%);
+            color: #f9fcff;
+            box-shadow: var(--shadow);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -80px -120px auto;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            filter: blur(6px);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            font-size: 0.86rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            margin: 18px 0 12px;
+            font-size: clamp(2.4rem, 6vw, 4.8rem);
+            line-height: 0.96;
+            letter-spacing: -0.05em;
+        }
+
+        .hero p {
+            margin: 0;
+            font-size: clamp(1rem, 2vw, 1.14rem);
+            line-height: 1.75;
+            color: rgba(248, 252, 255, 0.86);
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 28px;
+            max-width: 720px;
+        }
+
+        .hero-meta-card {
+            padding: 16px 18px;
+            border-radius: var(--radius-md);
+            background: rgba(7, 26, 40, 0.24);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hero-meta-label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.64);
+        }
+
+        .hero-meta-value {
+            display: block;
+            margin-top: 6px;
+            font-size: 1rem;
+            line-height: 1.45;
+            font-weight: 600;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+            gap: 24px;
+            margin-top: 26px;
+        }
+
+        .panel {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-xl);
+            background: var(--surface);
+            backdrop-filter: blur(14px);
+            box-shadow: var(--shadow);
+        }
+
+        .section-block {
+            padding: 30px;
+        }
+
+        .section-block + .section-block {
+            border-top: 1px solid var(--line);
+        }
+
+        .section-kicker {
+            margin: 0 0 10px;
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .section-block h2 {
+            margin: 0;
+            font-size: clamp(1.45rem, 2vw, 1.9rem);
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+        }
+
+        .section-block p,
+        .section-block li {
+            color: var(--muted);
+            line-height: 1.78;
+            font-size: 1rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 18px;
+            padding: 13px 18px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 16px 28px rgba(11, 119, 183, 0.2);
+        }
+
+        .contact-link:hover {
+            background: var(--accent-strong);
+        }
+
+        .support-note {
+            margin-top: 14px;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            font-size: 0.95rem;
+        }
+
+        .faq-list,
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .faq-list li,
+        .check-list li {
+            padding: 18px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .faq-list li:first-child,
+        .check-list li:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .faq-question {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .aside-stack {
+            display: grid;
+            gap: 24px;
+        }
+
+        .aside-card {
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-xl);
+            background: var(--surface-strong);
+            box-shadow: var(--shadow);
+        }
+
+        .aside-card h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            letter-spacing: -0.03em;
+        }
+
+        .aside-card p,
+        .aside-card li {
+            color: var(--muted);
+            line-height: 1.72;
+        }
+
+        .mini-stat {
+            display: grid;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .mini-stat-item {
+            padding: 16px 18px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--line);
+        }
+
+        .mini-stat-item strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang].is-visible {
+            display: block;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 26px;
+            padding: 18px 6px 8px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 920px) {
+            .topbar {
+                border-radius: 24px;
+                align-items: flex-start;
+            }
+
+            .content-grid,
+            .hero-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .page-shell {
+                width: min(calc(100% - 20px), var(--content-width));
+                padding-top: 10px;
+            }
+
+            .topbar,
+            .topbar-right {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links,
+            .language-switcher {
+                width: 100%;
+            }
+
+            .nav-link,
+            .lang-button {
+                flex: 1 1 0;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero,
+            .section-block,
+            .aside-card {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar" aria-label="VoucherKeep page navigation">
+            <div class="brand">
+                <span class="brand-mark">VoucherKeep</span>
+                <span class="brand-name">Offline travel voucher companion</span>
+            </div>
+            <div class="topbar-right">
+                <nav class="nav-links" aria-label="Page links">
+                    <a class="nav-link is-current" href="./voucherkeep_support.html">Support</a>
+                    <a class="nav-link" href="./voucherkeep_privacy-policy.html">Privacy</a>
+                    <a class="nav-link" href="./voucherkeep_marketting.html">Marketing</a>
+                </nav>
+                <div class="language-switcher" aria-label="Language switcher">
+                    <button class="lang-button" type="button" data-lang-button="ko">한국어</button>
+                    <button class="lang-button" type="button" data-lang-button="en">English</button>
+                    <button class="lang-button" type="button" data-lang-button="ja">日本語</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-inner">
+                    <span class="eyebrow">Support center</span>
+                    <h1 data-lang="ko">여행 도중에도<br>빠르게 답을 찾도록.</h1>
+                    <h1 data-lang="en">Support that stays clear,<br>even while you travel.</h1>
+                    <h1 data-lang="ja">旅の途中でも、<br>すぐに確認できるサポート。</h1>
+                    <p data-lang="ko">VoucherKeep 사용 중 문의가 있거나 예상과 다른 동작을 발견했다면 이 페이지에서 가장 빠른 연락 경로와 자주 묻는 내용을 확인할 수 있습니다.</p>
+                    <p data-lang="en">If you need help with VoucherKeep or notice behavior that feels off, this page gives you the fastest support route and the most common answers.</p>
+                    <p data-lang="ja">VoucherKeep の使い方で困ったことや、想定と異なる動作を見つけた場合は、このページで最短の問い合わせ方法とよくある質問を確認できます。</p>
+                </div>
+                <div class="hero-meta">
+                    <div class="hero-meta-card">
+                        <span class="hero-meta-label">Response</span>
+                        <span class="hero-meta-value" data-lang="ko">영업일 기준 2~3일 내 답변</span>
+                        <span class="hero-meta-value" data-lang="en">Reply within 2-3 business days</span>
+                        <span class="hero-meta-value" data-lang="ja">通常 2〜3 営業日以内に返信</span>
+                    </div>
+                    <div class="hero-meta-card">
+                        <span class="hero-meta-label">Storage</span>
+                        <span class="hero-meta-value" data-lang="ko">모든 데이터는 기기 내부에만 보관</span>
+                        <span class="hero-meta-value" data-lang="en">All data stays on your device</span>
+                        <span class="hero-meta-value" data-lang="ja">すべてのデータは端末内だけに保存</span>
+                    </div>
+                    <div class="hero-meta-card">
+                        <span class="hero-meta-label">Contact</span>
+                        <span class="hero-meta-value">judasiscariot055@gmail.com</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-grid">
+                <div class="panel">
+                    <div class="section-block">
+                        <p class="section-kicker">Direct contact</p>
+                        <h2 data-lang="ko">지원이 필요한 내용을 메일로 보내주세요.</h2>
+                        <h2 data-lang="en">Send your support request by email.</h2>
+                        <h2 data-lang="ja">サポートが必要な内容をメールでお送りください。</h2>
+                        <p data-lang="ko">문의, 기능 제안, 버그 신고 모두 같은 주소로 받고 있습니다. 사용 중인 운영체제 버전과 앱 버전, 문제 상황을 함께 적어주시면 확인 속도가 빨라집니다.</p>
+                        <p data-lang="en">Questions, feature requests, and bug reports all go to the same inbox. Include your OS version, app version, and a short description of the issue for faster review.</p>
+                        <p data-lang="ja">お問い合わせ、機能提案、不具合報告はすべて同じメールアドレスで受け付けています。OS バージョン、アプリのバージョン、発生状況を添えると確認が早くなります。</p>
+                        <a class="contact-link" href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a>
+                        <div class="support-note" data-lang="ko">메일에 바우처 원본 전체를 첨부할 필요는 없습니다. 개인정보가 포함될 수 있으므로 필요한 화면만 공유해 주세요.</div>
+                        <div class="support-note" data-lang="en">You do not need to attach the full original voucher. Since it may contain personal information, share only the relevant screen when possible.</div>
+                        <div class="support-note" data-lang="ja">元のバウチャー全体を添付する必要はありません。個人情報が含まれる場合があるため、必要な画面だけ共有してください。</div>
+                    </div>
+                    <div class="section-block">
+                        <p class="section-kicker">FAQ</p>
+                        <h2 data-lang="ko">자주 묻는 질문</h2>
+                        <h2 data-lang="en">Frequently asked questions</h2>
+                        <h2 data-lang="ja">よくある質問</h2>
+                        <ul class="faq-list" data-lang="ko">
+                            <li>
+                                <strong class="faq-question">데이터가 클라우드에 저장되나요?</strong>
+                                아니요. VoucherKeep은 오프라인 중심 앱이며, 사용자가 추가한 바우처와 메모는 기기 내부에만 저장됩니다.
+                            </li>
+                            <li>
+                                <strong class="faq-question">PDF를 가져오면 왜 이미지처럼 보이나요?</strong>
+                                빠른 열람과 오프라인 접근성을 위해 PDF를 최적화된 이미지 형태로 변환해 저장합니다.
+                            </li>
+                            <li>
+                                <strong class="faq-question">앱을 삭제하면 데이터도 사라지나요?</strong>
+                                네. 앱을 삭제하면 기기 내부에 저장된 VoucherKeep 데이터도 함께 제거됩니다.
+                            </li>
+                        </ul>
+                        <ul class="faq-list" data-lang="en">
+                            <li>
+                                <strong class="faq-question">Is my data stored in the cloud?</strong>
+                                No. VoucherKeep is designed for offline use, and the vouchers and notes you add stay only on your device.
+                            </li>
+                            <li>
+                                <strong class="faq-question">Why does an imported PDF appear as an image?</strong>
+                                For faster viewing and better offline access, VoucherKeep converts PDFs into optimized image assets.
+                            </li>
+                            <li>
+                                <strong class="faq-question">Will my data be removed if I delete the app?</strong>
+                                Yes. Deleting the app also removes the VoucherKeep data stored on your device.
+                            </li>
+                        </ul>
+                        <ul class="faq-list" data-lang="ja">
+                            <li>
+                                <strong class="faq-question">データはクラウドに保存されますか。</strong>
+                                いいえ。VoucherKeep はオフライン利用を前提としており、追加したバウチャーやメモは端末内にのみ保存されます。
+                            </li>
+                            <li>
+                                <strong class="faq-question">PDF を取り込むと画像のように見えるのはなぜですか。</strong>
+                                表示速度とオフラインでのアクセス性を高めるため、PDF を最適化された画像アセットへ変換して保存します。
+                            </li>
+                            <li>
+                                <strong class="faq-question">アプリを削除するとデータも消えますか。</strong>
+                                はい。アプリを削除すると、端末内に保存されていた VoucherKeep のデータも一緒に削除されます。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <aside class="aside-stack">
+                    <div class="aside-card">
+                        <h3 data-lang="ko">문의 전에 확인하면 좋은 내용</h3>
+                        <h3 data-lang="en">Helpful details before you contact us</h3>
+                        <h3 data-lang="ja">お問い合わせ前にあると助かる情報</h3>
+                        <ul class="check-list" data-lang="ko">
+                            <li>사용 중인 기기 모델</li>
+                            <li>iOS 또는 Android 버전</li>
+                            <li>앱 버전과 문제 발생 시점</li>
+                            <li>재현 가능한 순서나 스크린샷</li>
+                        </ul>
+                        <ul class="check-list" data-lang="en">
+                            <li>Your device model</li>
+                            <li>iOS or Android version</li>
+                            <li>App version and when the issue happened</li>
+                            <li>Steps to reproduce or screenshots</li>
+                        </ul>
+                        <ul class="check-list" data-lang="ja">
+                            <li>利用している端末のモデル</li>
+                            <li>iOS または Android のバージョン</li>
+                            <li>アプリのバージョンと発生時点</li>
+                            <li>再現手順またはスクリーンショット</li>
+                        </ul>
+                    </div>
+
+                    <div class="aside-card">
+                        <h3 data-lang="ko">지원 범위</h3>
+                        <h3 data-lang="en">Support scope</h3>
+                        <h3 data-lang="ja">サポート範囲</h3>
+                        <div class="mini-stat">
+                            <div class="mini-stat-item">
+                                <div data-lang="ko">
+                                    <strong>앱 사용 문의</strong>
+                                    <span>기능 동작, 가져오기, 보관 방식 안내</span>
+                                </div>
+                                <div data-lang="en">
+                                    <strong>App usage questions</strong>
+                                    <span>Feature behavior, importing flow, and storage guidance</span>
+                                </div>
+                                <div data-lang="ja">
+                                    <strong>アプリの使い方</strong>
+                                    <span>機能の動作、取り込み手順、保存方式の案内</span>
+                                </div>
+                            </div>
+                            <div class="mini-stat-item">
+                                <div data-lang="ko">
+                                    <strong>버그 제보</strong>
+                                    <span>오류 상황 확인 후 수정 우선순위 검토</span>
+                                </div>
+                                <div data-lang="en">
+                                    <strong>Bug reports</strong>
+                                    <span>Issue review and prioritization after reproduction details</span>
+                                </div>
+                                <div data-lang="ja">
+                                    <strong>不具合報告</strong>
+                                    <span>再現情報の確認後に修正優先度を判断</span>
+                                </div>
+                            </div>
+                            <div class="mini-stat-item">
+                                <div data-lang="ko">
+                                    <strong>기능 제안</strong>
+                                    <span>여행 중 실제 사용 흐름을 기준으로 검토</span>
+                                </div>
+                                <div data-lang="en">
+                                    <strong>Feature requests</strong>
+                                    <span>Reviewed against real travel and offline usage scenarios</span>
+                                </div>
+                                <div data-lang="ja">
+                                    <strong>機能提案</strong>
+                                    <span>旅行中の実利用シナリオを基準に検討</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+        </main>
+
+        <footer>
+            <span>© 2026 Kim Changok</span>
+            <span data-lang="ko">VoucherKeep Support Page</span>
+            <span data-lang="en">VoucherKeep Support Page</span>
+            <span data-lang="ja">VoucherKeep サポートページ</span>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            var supported = ["ko", "en", "ja"];
+            var storageKey = "voucherkeep-language";
+
+            function normalizeLanguage(value) {
+                if (!value) {
+                    return "ko";
+                }
+
+                var lower = value.toLowerCase();
+                if (lower.indexOf("ko") === 0) {
+                    return "ko";
+                }
+                if (lower.indexOf("ja") === 0) {
+                    return "ja";
+                }
+                if (lower.indexOf("en") === 0) {
+                    return "en";
+                }
+                return "ko";
+            }
+
+            function applyLanguage(lang) {
+                var active = supported.indexOf(lang) >= 0 ? lang : "ko";
+
+                document.documentElement.lang = active;
+
+                document.querySelectorAll("[data-lang]").forEach(function (node) {
+                    node.classList.toggle("is-visible", node.getAttribute("data-lang") === active);
+                });
+
+                document.querySelectorAll("[data-lang-button]").forEach(function (button) {
+                    button.classList.toggle("is-active", button.getAttribute("data-lang-button") === active);
+                });
+
+                localStorage.setItem(storageKey, active);
+            }
+
+            var preferred = normalizeLanguage(localStorage.getItem(storageKey) || navigator.language);
+            applyLanguage(preferred);
+
+            document.querySelectorAll("[data-lang-button]").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    applyLanguage(button.getAttribute("data-lang-button"));
+                });
+            });
+        }());
+    </script>
+</body>
+</html>
