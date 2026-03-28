@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoucherKeep Privacy Policy</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f5f1e8;
+            --surface: rgba(255, 252, 246, 0.84);
+            --surface-strong: #fffaf1;
+            --text: #1f2a37;
+            --muted: #5e6b78;
+            --line: rgba(31, 42, 55, 0.12);
+            --accent: #0b77b7;
+            --accent-strong: #094d74;
+            --accent-soft: rgba(11, 119, 183, 0.12);
+            --shadow: 0 24px 60px rgba(22, 34, 51, 0.08);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --content-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Pretendard", "Noto Sans KR", "Noto Sans JP", "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(11, 119, 183, 0.12), transparent 30%),
+                radial-gradient(circle at top right, rgba(255, 190, 92, 0.22), transparent 28%),
+                linear-gradient(180deg, #f7f3ea 0%, #f3eee4 48%, #f7f4ee 100%);
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .page-shell {
+            width: min(calc(100% - 32px), var(--content-width));
+            margin: 0 auto;
+            padding: 20px 0 48px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            margin-top: 8px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 250, 241, 0.75);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 10px 30px rgba(22, 34, 51, 0.05);
+            position: sticky;
+            top: 14px;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .brand-mark {
+            font-size: 0.76rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .brand-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links,
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link,
+        .lang-button {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.62);
+            color: var(--muted);
+            border-radius: 999px;
+            padding: 9px 14px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+        }
+
+        .nav-link:hover,
+        .lang-button:hover {
+            transform: translateY(-1px);
+            color: var(--accent-strong);
+            border-color: rgba(11, 119, 183, 0.22);
+        }
+
+        .nav-link.is-current,
+        .lang-button.is-active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            margin-top: 18px;
+            padding: clamp(36px, 6vw, 68px);
+            border-radius: var(--radius-xl);
+            background:
+                radial-gradient(circle at 18% 24%, rgba(110, 203, 255, 0.3), transparent 34%),
+                radial-gradient(circle at 86% 20%, rgba(255, 212, 128, 0.24), transparent 26%),
+                linear-gradient(135deg, #15344a 0%, #0d678c 42%, #dceadf 100%);
+            color: #f9fcff;
+            box-shadow: var(--shadow);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -80px -120px auto;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            font-size: 0.86rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            margin: 18px 0 12px;
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+        }
+
+        .hero p {
+            margin: 0;
+            font-size: clamp(1rem, 2vw, 1.14rem);
+            line-height: 1.75;
+            color: rgba(248, 252, 255, 0.86);
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 28px;
+            max-width: 760px;
+        }
+
+        .hero-meta-card {
+            padding: 16px 18px;
+            border-radius: var(--radius-md);
+            background: rgba(7, 26, 40, 0.24);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hero-meta-label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.64);
+        }
+
+        .hero-meta-value {
+            display: block;
+            margin-top: 6px;
+            font-size: 1rem;
+            line-height: 1.45;
+            font-weight: 600;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+            gap: 24px;
+            margin-top: 26px;
+        }
+
+        .panel {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-xl);
+            background: var(--surface);
+            backdrop-filter: blur(14px);
+            box-shadow: var(--shadow);
+        }
+
+        .policy-section {
+            padding: 30px;
+        }
+
+        .policy-section + .policy-section {
+            border-top: 1px solid var(--line);
+        }
+
+        .section-kicker {
+            margin: 0 0 10px;
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .policy-section h2 {
+            margin: 0;
+            font-size: clamp(1.35rem, 2vw, 1.8rem);
+            line-height: 1.24;
+            letter-spacing: -0.03em;
+        }
+
+        .policy-section p,
+        .policy-section li {
+            color: var(--muted);
+            line-height: 1.78;
+            font-size: 1rem;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 0;
+        }
+
+        .summary-list li {
+            padding: 16px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .summary-list li:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .aside-stack {
+            display: grid;
+            gap: 24px;
+        }
+
+        .aside-card {
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-xl);
+            background: var(--surface-strong);
+            box-shadow: var(--shadow);
+        }
+
+        .aside-card h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            letter-spacing: -0.03em;
+        }
+
+        .aside-card p,
+        .aside-card li {
+            color: var(--muted);
+            line-height: 1.72;
+        }
+
+        .note-box {
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: var(--accent-soft);
+            color: var(--accent-strong);
+            font-size: 0.95rem;
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang].is-visible {
+            display: block;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 26px;
+            padding: 18px 6px 8px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 920px) {
+            .topbar {
+                border-radius: 24px;
+                align-items: flex-start;
+            }
+
+            .content-grid,
+            .hero-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .page-shell {
+                width: min(calc(100% - 20px), var(--content-width));
+                padding-top: 10px;
+            }
+
+            .topbar,
+            .topbar-right {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links,
+            .language-switcher {
+                width: 100%;
+            }
+
+            .nav-link,
+            .lang-button {
+                flex: 1 1 0;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero,
+            .policy-section,
+            .aside-card {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar" aria-label="VoucherKeep page navigation">
+            <div class="brand">
+                <span class="brand-mark">VoucherKeep</span>
+                <span class="brand-name">Offline travel voucher companion</span>
+            </div>
+            <div class="topbar-right">
+                <nav class="nav-links" aria-label="Page links">
+                    <a class="nav-link" href="./voucherkeep_support.html">Support</a>
+                    <a class="nav-link is-current" href="./voucherkeep_privacy-policy.html">Privacy</a>
+                    <a class="nav-link" href="./voucherkeep_marketting.html">Marketing</a>
+                </nav>
+                <div class="language-switcher" aria-label="Language switcher">
+                    <button class="lang-button" type="button" data-lang-button="ko">한국어</button>
+                    <button class="lang-button" type="button" data-lang-button="en">English</button>
+                    <button class="lang-button" type="button" data-lang-button="ja">日本語</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-inner">
+                    <span class="eyebrow">Privacy policy</span>
+                    <h1 data-lang="ko">개인정보는 단순하게.<br>데이터는 기기 안에만.</h1>
+                    <h1 data-lang="en">Privacy kept simple.<br>Your data stays on device.</h1>
+                    <h1 data-lang="ja">プライバシーはシンプルに。<br>データは端末の中だけに。</h1>
+                    <p data-lang="ko">VoucherKeep은 여행 중 빠른 확인과 오프라인 사용성에 집중한 앱입니다. 그 원칙에 맞춰, 앱은 사용자의 바우처 데이터를 서버에 업로드하지 않습니다.</p>
+                    <p data-lang="en">VoucherKeep is built for quick access and reliable offline travel use. In line with that approach, the app does not upload your voucher data to our servers.</p>
+                    <p data-lang="ja">VoucherKeep は、旅行中の素早い確認とオフライン利用を重視して設計されています。その方針に合わせて、バウチャーデータを当社サーバーへアップロードしません。</p>
+                </div>
+                <div class="hero-meta">
+                    <div class="hero-meta-card">
+                        <span class="hero-meta-label">Effective date</span>
+                        <span class="hero-meta-value">2026-03-28</span>
+                    </div>
+                    <div class="hero-meta-card">
+                        <span class="hero-meta-label">Storage model</span>
+                        <span class="hero-meta-value" data-lang="ko">로컬 저장 중심</span>
+                        <span class="hero-meta-value" data-lang="en">Local-first storage</span>
+                        <span class="hero-meta-value" data-lang="ja">ローカル保存中心</span>
+                    </div>
+                    <div class="hero-meta-card">
+                        <span class="hero-meta-label">Contact</span>
+                        <span class="hero-meta-value">judasiscariot055@gmail.com</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-grid">
+                <div class="panel">
+                    <section class="policy-section">
+                        <p class="section-kicker">1. Data collection</p>
+                        <h2 data-lang="ko">수집하는 개인정보 항목</h2>
+                        <h2 data-lang="en">What data we collect</h2>
+                        <h2 data-lang="ja">収集する情報</h2>
+                        <p data-lang="ko">VoucherKeep은 사용자가 등록한 이미지, PDF, 메모 등의 바우처 관련 데이터를 자체 서버로 전송하지 않습니다. 이러한 데이터는 사용자의 기기 내부 저장소에만 보관됩니다.</p>
+                        <p data-lang="en">VoucherKeep does not send voucher-related data such as images, PDFs, or notes that you add to our own servers. That content stays only in storage on your device.</p>
+                        <p data-lang="ja">VoucherKeep は、ユーザーが追加した画像、PDF、メモなどのバウチャー関連データを当社サーバーへ送信しません。これらのデータは端末内の保存領域にのみ保持されます。</p>
+                    </section>
+
+                    <section class="policy-section">
+                        <p class="section-kicker">2. Ads and tracking</p>
+                        <h2 data-lang="ko">광고 및 추적 관련 안내</h2>
+                        <h2 data-lang="en">Advertising and tracking information</h2>
+                        <h2 data-lang="ja">広告およびトラッキングについて</h2>
+                        <p data-lang="ko">앱은 광고 제공을 위해 Google AdMob SDK를 사용할 수 있습니다. iOS에서는 App Tracking Transparency 절차에 따라 사용자가 허용한 경우에만 광고 식별자(IDFA)가 광고 최적화 목적에 활용될 수 있습니다.</p>
+                        <p data-lang="en">The app may use the Google AdMob SDK to deliver ads. On iOS, the advertising identifier (IDFA) may be used for ad personalization only when the user grants permission through App Tracking Transparency.</p>
+                        <p data-lang="ja">アプリでは広告配信のために Google AdMob SDK を使用する場合があります。iOS では、App Tracking Transparency によりユーザーが許可した場合に限り、広告識別子 IDFA が広告最適化の目的で利用されることがあります。</p>
+                    </section>
+
+                    <section class="policy-section">
+                        <p class="section-kicker">3. Data retention</p>
+                        <h2 data-lang="ko">데이터 보안 및 삭제</h2>
+                        <h2 data-lang="en">Data security and deletion</h2>
+                        <h2 data-lang="ja">データの保護と削除</h2>
+                        <p data-lang="ko">VoucherKeep 데이터는 사용자의 기기 안에만 존재합니다. 앱을 삭제하면 기기 내부에 저장된 관련 데이터도 함께 제거됩니다. 저희는 사용자의 바우처 내용을 열람하거나 직접 수집하지 않습니다.</p>
+                        <p data-lang="en">VoucherKeep data exists only on your device. If you delete the app, the related data stored on that device is also removed. We do not view or directly collect the contents of your vouchers.</p>
+                        <p data-lang="ja">VoucherKeep のデータは端末内にのみ存在します。アプリを削除すると、その端末に保存されていた関連データも削除されます。当社がユーザーのバウチャー内容を閲覧したり、直接収集したりすることはありません。</p>
+                    </section>
+
+                    <section class="policy-section">
+                        <p class="section-kicker">4. Contact</p>
+                        <h2 data-lang="ko">문의 및 권리 행사</h2>
+                        <h2 data-lang="en">Questions and rights requests</h2>
+                        <h2 data-lang="ja">お問い合わせと権利行使</h2>
+                        <p data-lang="ko">개인정보 처리와 관련한 문의가 있거나 정책 설명이 필요하면 <a href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a>으로 연락해 주세요.</p>
+                        <p data-lang="en">If you have questions about privacy handling or need clarification about this policy, contact <a href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a>.</p>
+                        <p data-lang="ja">個人情報の取り扱いについて質問がある場合や、本ポリシーの説明が必要な場合は、<a href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a> までご連絡ください。</p>
+                    </section>
+                </div>
+
+                <aside class="aside-stack">
+                    <div class="aside-card">
+                        <h3 data-lang="ko">한눈에 보는 요약</h3>
+                        <h3 data-lang="en">Quick summary</h3>
+                        <h3 data-lang="ja">要点まとめ</h3>
+                        <ul class="summary-list" data-lang="ko">
+                            <li>바우처 데이터는 서버로 업로드되지 않습니다.</li>
+                            <li>앱 삭제 시 기기 내부 데이터도 함께 삭제됩니다.</li>
+                            <li>광고 식별자는 사용자의 동의가 있을 때만 활용될 수 있습니다.</li>
+                        </ul>
+                        <ul class="summary-list" data-lang="en">
+                            <li>Voucher data is not uploaded to our servers.</li>
+                            <li>Deleting the app also removes data stored on the device.</li>
+                            <li>Advertising identifiers may be used only with user permission.</li>
+                        </ul>
+                        <ul class="summary-list" data-lang="ja">
+                            <li>バウチャーデータは当社サーバーへアップロードされません。</li>
+                            <li>アプリ削除時には端末内データも削除されます。</li>
+                            <li>広告識別子はユーザーの許可がある場合にのみ利用されます。</li>
+                        </ul>
+                    </div>
+
+                    <div class="aside-card">
+                        <h3 data-lang="ko">정책 메모</h3>
+                        <h3 data-lang="en">Policy note</h3>
+                        <h3 data-lang="ja">ポリシーノート</h3>
+                        <p data-lang="ko">이 페이지는 앱의 현재 데이터 처리 구조를 기준으로 작성되었습니다. 앱의 저장 방식이나 광고 정책이 바뀌면 문구도 함께 업데이트됩니다.</p>
+                        <p data-lang="en">This page reflects the app's current data-handling model. If storage behavior or advertising policy changes, this policy will be updated accordingly.</p>
+                        <p data-lang="ja">このページは、現在のデータ処理構造に基づいて作成されています。保存方式や広告ポリシーが変更された場合は、本ポリシーも更新されます。</p>
+                        <div class="note-box" data-lang="ko">법률 자문 문서가 아니라, 실제 앱 동작을 사용자에게 명확하게 설명하기 위한 정책 문서입니다.</div>
+                        <div class="note-box" data-lang="en">This is a practical policy page intended to explain how the app behaves, rather than a substitute for formal legal advice.</div>
+                        <div class="note-box" data-lang="ja">これは法的助言の代替ではなく、アプリの実際の動作をわかりやすく説明するためのポリシーページです。</div>
+                    </div>
+                </aside>
+            </section>
+        </main>
+
+        <footer>
+            <span>© 2026 Kim Changok</span>
+            <span data-lang="ko">VoucherKeep Privacy Policy</span>
+            <span data-lang="en">VoucherKeep Privacy Policy</span>
+            <span data-lang="ja">VoucherKeep プライバシーポリシー</span>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            var supported = ["ko", "en", "ja"];
+            var storageKey = "voucherkeep-language";
+
+            function normalizeLanguage(value) {
+                if (!value) {
+                    return "ko";
+                }
+
+                var lower = value.toLowerCase();
+                if (lower.indexOf("ko") === 0) {
+                    return "ko";
+                }
+                if (lower.indexOf("ja") === 0) {
+                    return "ja";
+                }
+                if (lower.indexOf("en") === 0) {
+                    return "en";
+                }
+                return "ko";
+            }
+
+            function applyLanguage(lang) {
+                var active = supported.indexOf(lang) >= 0 ? lang : "ko";
+
+                document.documentElement.lang = active;
+
+                document.querySelectorAll("[data-lang]").forEach(function (node) {
+                    node.classList.toggle("is-visible", node.getAttribute("data-lang") === active);
+                });
+
+                document.querySelectorAll("[data-lang-button]").forEach(function (button) {
+                    button.classList.toggle("is-active", button.getAttribute("data-lang-button") === active);
+                });
+
+                localStorage.setItem(storageKey, active);
+            }
+
+            var preferred = normalizeLanguage(localStorage.getItem(storageKey) || navigator.language);
+            applyLanguage(preferred);
+
+            document.querySelectorAll("[data-lang-button]").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    applyLanguage(button.getAttribute("data-lang-button"));
+                });
+            });
+        }());
+    </script>
+</body>
+</html>
