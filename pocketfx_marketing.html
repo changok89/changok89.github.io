@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketFX Marketing</title>
+    <meta name="description" content="PocketFX 제품 소개 페이지">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f6fc;
+            --surface: rgba(255, 255, 255, 0.9);
+            --text: #17203d;
+            --muted: #5d6587;
+            --accent: #6159da;
+            --accent-2: #349fff;
+            --border: rgba(220, 227, 244, 0.92);
+            --shadow: 0 28px 80px rgba(35, 52, 113, 0.15);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Pretendard", "Noto Sans KR", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 0% 100%, rgba(176, 72, 255, 0.25), transparent 28%),
+                radial-gradient(circle at 100% 0%, rgba(52, 159, 255, 0.25), transparent 30%),
+                linear-gradient(180deg, #eef2ff 0%, #f8f9fe 100%);
+            line-height: 1.65;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 20px 80px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .hero-main,
+        .hero-side,
+        .section,
+        .feature-card {
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(16px);
+        }
+
+        .hero-main {
+            padding: 36px;
+            background: linear-gradient(135deg, rgba(97, 89, 218, 0.96), rgba(52, 159, 255, 0.94));
+            color: #ffffff;
+        }
+
+        .hero-side,
+        .section,
+        .feature-card {
+            background: var(--surface);
+        }
+
+        .hero-side {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .hero-main h1 {
+            margin: 16px 0 14px;
+            font-size: clamp(2.4rem, 5vw, 4.4rem);
+            line-height: 0.98;
+        }
+
+        .hero-main p {
+            margin: 0;
+            max-width: 620px;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .hero-side strong {
+            font-size: 1.05rem;
+        }
+
+        .hero-side p {
+            margin: 8px 0 0;
+            color: var(--muted);
+        }
+
+        .section {
+            margin-top: 24px;
+            padding: 30px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            padding: 24px;
+        }
+
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(97, 89, 218, 0.12), rgba(52, 159, 255, 0.16));
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        h2, h3 {
+            margin: 0 0 12px;
+            line-height: 1.15;
+        }
+
+        p, ul {
+            margin: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li + li,
+        p + p,
+        h3 + p,
+        p + ul {
+            margin-top: 10px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 860px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <article class="hero-main">
+                <div class="eyebrow">PocketFX</div>
+                <h1>환율 확인부터<br>여행 계산까지<br>하나의 흐름으로</h1>
+                <p>PocketFX는 감시목록, 오프라인 계산기, 프리셋, 최근 기록을 함께 제공해 여행 준비와 현장 환산을 더 단순하게 만들어 줍니다. 자주 쓰는 조건은 저장하고, 필요한 순간에는 바로 꺼내 쓰면 됩니다.</p>
+            </article>
+            <aside class="hero-side">
+                <strong>빠르게 확인하고, 바로 계산하고, 다시 찾아보지 않게.</strong>
+                <p>불안정한 네트워크 환경에서도 계산 흐름을 유지할 수 있도록 설계되어 있어, 이동 중에도 부담 없이 사용할 수 있습니다.</p>
+            </aside>
+        </section>
+
+        <section class="section">
+            <h2>핵심 가치</h2>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-badge">01</div>
+                    <h3>감시목록</h3>
+                    <p>중요한 통화쌍을 한곳에 모아 보고, 목표 환율 도달 여부와 최근 갱신 상태를 빠르게 확인할 수 있습니다.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-badge">02</div>
+                    <h3>오프라인 계산</h3>
+                    <p>양방향 환산, 퍼센트 수수료, 고정 수수료, 반올림 규칙까지 지원해 실제 지출에 가까운 계산이 가능합니다.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-badge">03</div>
+                    <h3>프리셋 재사용</h3>
+                    <p>자주 쓰는 환전 조건을 저장해 두고, 반복 입력 없이 빠르게 적용할 수 있습니다.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-badge">04</div>
+                    <h3>최근 기록</h3>
+                    <p>방금 계산한 결과를 다시 열어 비교하거나 확인할 수 있어 현장 사용성이 높습니다.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>PocketFX가 필요한 순간</h2>
+            <ul>
+                <li>여행 전에 목표 환율을 미리 정하고 흐름을 확인하고 싶을 때</li>
+                <li>현지에서 환전 금액을 빠르게 계산하고 수수료까지 반영하고 싶을 때</li>
+                <li>여러 통화 조합을 반복해서 계산해야 할 때</li>
+                <li>한 번 맞춘 설정을 프리셋으로 저장해 두고 다시 쓰고 싶을 때</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>제품 원칙</h2>
+            <ul>
+                <li>핵심 계산 흐름은 네트워크가 불안정해도 계속 사용할 수 있어야 합니다</li>
+                <li>자주 쓰는 조건은 저장하고, 다시 찾는 시간은 줄여야 합니다</li>
+                <li>복잡한 환율 계산도 한 화면 흐름 안에서 이해할 수 있어야 합니다</li>
+                <li>개인정보는 필요한 범위 안에서만 처리해야 합니다</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>더 알아보기</h2>
+            <ul>
+                <li><a href="./pocketfx_support.html">지원 안내</a></li>
+                <li><a href="./pocketfx_privacy-policy.html">개인정보 처리방침</a></li>
+            </ul>
+        </section>
+
+        <p class="footer">이 페이지는 현재 제품 기능 문서를 기준으로 작성된 PocketFX 소개 자료입니다.</p>
+    </main>
+</body>
+</html>
