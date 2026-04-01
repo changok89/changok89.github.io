@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "Changok'Blog"
+title                    : "Changok Blog"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Kim changok"
-description              : ""
+subtitle                 : "Mobile debugging, developer tools, and practical AI notes"
+name                     : "Changok Kim"
+description              : "A practical developer blog covering iOS, Android, browser debugging, proxy tooling, utilities, and on-device AI notes."
 url                      : "https://changok89.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : changok89/changok89.github.io 
@@ -104,9 +104,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "kim chang ok"
+  name             : "Changok Kim"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : ""
+  bio              : "Mobile-focused developer sharing practical debugging notes, tooling guides, and on-device AI experiments."
   location         : "Republic of Korea"
   email            :
   links:
@@ -116,6 +116,9 @@ author:
     - label: "Buy Me a Tea"
       icon: "fas fa-fw fa-mug-hot"
       url: "https://buymeacoffee.com/changok89"
+    - label: "Ko-fi"
+      icon: "fas fa-fw fa-heart"
+      url: "https://ko-fi.com/changok89"
 
 # Site Footer
 footer:
@@ -126,6 +129,9 @@ footer:
     - label: "Buy Me a Tea"
       icon: "fas fa-fw fa-mug-hot"
       url: "https://buymeacoffee.com/changok89"
+    - label: "Ko-fi"
+      icon: "fas fa-fw fa-heart"
+      url: "https://ko-fi.com/changok89"
 
 
 # Reading Files
