@@ -1,0 +1,37 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0B1020"/>
+  <rect x="64" y="64" width="1472" height="772" rx="28" fill="#11182D" stroke="#26324F" stroke-width="2"/>
+  <rect x="96" y="96" width="1408" height="112" rx="20" fill="#16213A"/>
+  <text x="130" y="145" fill="#8AB4FF" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">Claude Code Analysis</text>
+  <text x="130" y="188" fill="#EAF0FF" font-family="Pretendard, Inter, sans-serif" font-size="56" font-weight="800">클로드코드 소스 분석서를 읽고</text>
+
+  <rect x="96" y="250" width="640" height="500" rx="24" fill="#0E1528" stroke="#25314F" stroke-width="2"/>
+  <text x="132" y="312" fill="#F4F7FF" font-family="Pretendard, Inter, sans-serif" font-size="34" font-weight="800">What stands out?</text>
+  <text x="132" y="368" fill="#B9C5E5" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="600">• Session structure</text>
+  <text x="132" y="420" fill="#B9C5E5" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="600">• Task graph</text>
+  <text x="132" y="472" fill="#B9C5E5" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="600">• Permissions</text>
+  <text x="132" y="524" fill="#B9C5E5" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="600">• Tool routing</text>
+  <text x="132" y="576" fill="#B9C5E5" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="600">• Runtime &amp; transcript</text>
+  <text x="132" y="664" fill="#8AB4FF" font-family="Pretendard, Inter, sans-serif" font-size="26" font-weight="700">The real edge is not only the model.</text>
+  <text x="132" y="706" fill="#EAF0FF" font-family="Pretendard, Inter, sans-serif" font-size="40" font-weight="800">The harness matters more than people think.</text>
+
+  <rect x="782" y="250" width="626" height="500" rx="24" fill="#0E1528" stroke="#25314F" stroke-width="2"/>
+  <rect x="834" y="320" width="198" height="74" rx="18" fill="#D97706"/>
+  <text x="883" y="366" fill="white" font-family="Inter, sans-serif" font-size="28" font-weight="800">MODEL</text>
+
+  <rect x="1112" y="288" width="216" height="66" rx="18" fill="#1D4ED8"/>
+  <text x="1157" y="330" fill="white" font-family="Inter, sans-serif" font-size="26" font-weight="800">SESSION</text>
+  <rect x="1112" y="382" width="216" height="66" rx="18" fill="#15803D"/>
+  <text x="1174" y="424" fill="white" font-family="Inter, sans-serif" font-size="26" font-weight="800">TASK</text>
+  <rect x="1112" y="476" width="216" height="66" rx="18" fill="#7C3AED"/>
+  <text x="1147" y="518" fill="white" font-family="Inter, sans-serif" font-size="26" font-weight="800">PERMISSIONS</text>
+  <rect x="1112" y="570" width="216" height="66" rx="18" fill="#BE185D"/>
+  <text x="1170" y="612" fill="white" font-family="Inter, sans-serif" font-size="26" font-weight="800">TOOLS</text>
+
+  <line x1="1038" y1="356" x2="1112" y2="322" stroke="#8AB4FF" stroke-width="5"/>
+  <line x1="1038" y1="356" x2="1112" y2="414" stroke="#8AB4FF" stroke-width="5"/>
+  <line x1="1038" y1="356" x2="1112" y2="508" stroke="#8AB4FF" stroke-width="5"/>
+  <line x1="1038" y1="356" x2="1112" y2="602" stroke="#8AB4FF" stroke-width="5"/>
+
+  <text x="842" y="694" fill="#AAB7D8" font-family="Pretendard, Inter, sans-serif" font-size="24" font-weight="600">source leak → analysis report → structure reading → harness insight</text>
+</svg>
