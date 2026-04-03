@@ -1,0 +1,30 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0A1020"/>
+  <rect x="64" y="64" width="1472" height="772" rx="28" fill="#10182D" stroke="#22304D" stroke-width="2"/>
+  <text x="104" y="142" fill="#7DD3FC" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">Gemma 4 / On-device AI</text>
+  <text x="104" y="218" fill="#F3F7FF" font-family="Pretendard, Inter, sans-serif" font-size="58" font-weight="800">온디바이스 AI는 이제</text>
+  <text x="104" y="286" fill="#F3F7FF" font-family="Pretendard, Inter, sans-serif" font-size="58" font-weight="800">보조 계층으로 꽤 쓸 만하다</text>
+
+  <rect x="104" y="338" width="612" height="384" rx="24" fill="#0D1527" stroke="#24314E" stroke-width="2"/>
+  <text x="144" y="394" fill="#A5B4FC" font-family="Pretendard, Inter, sans-serif" font-size="26" font-weight="700">Why it matters</text>
+  <text x="144" y="456" fill="#E5EDFF" font-family="Pretendard, Inter, sans-serif" font-size="32" font-weight="700">• mobile / IoT execution</text>
+  <text x="144" y="510" fill="#E5EDFF" font-family="Pretendard, Inter, sans-serif" font-size="32" font-weight="700">• agentic workflows</text>
+  <text x="144" y="564" fill="#E5EDFF" font-family="Pretendard, Inter, sans-serif" font-size="32" font-weight="700">• multimodal support</text>
+  <text x="144" y="618" fill="#E5EDFF" font-family="Pretendard, Inter, sans-serif" font-size="32" font-weight="700">• privacy-first preprocessing</text>
+  <text x="144" y="690" fill="#7DD3FC" font-family="Pretendard, Inter, sans-serif" font-size="26" font-weight="700">main model replacement? not yet.</text>
+
+  <rect x="782" y="338" width="650" height="384" rx="24" fill="#0D1527" stroke="#24314E" stroke-width="2"/>
+  <rect x="844" y="404" width="212" height="72" rx="18" fill="#2563EB"/>
+  <text x="898" y="449" fill="white" font-family="Inter, sans-serif" font-size="28" font-weight="800">LOCAL</text>
+  <rect x="1164" y="404" width="206" height="72" rx="18" fill="#D97706"/>
+  <text x="1209" y="449" fill="white" font-family="Inter, sans-serif" font-size="28" font-weight="800">CLOUD</text>
+  <line x1="1056" y1="440" x2="1164" y2="440" stroke="#93C5FD" stroke-width="6"/>
+  <text x="846" y="550" fill="#C7D2FE" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">classification</text>
+  <text x="846" y="596" fill="#C7D2FE" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">preprocessing</text>
+  <text x="846" y="642" fill="#C7D2FE" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">short summaries</text>
+  <text x="1170" y="550" fill="#FDE68A" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">long reasoning</text>
+  <text x="1170" y="596" fill="#FDE68A" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">coding tasks</text>
+  <text x="1170" y="642" fill="#FDE68A" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">complex orchestration</text>
+
+  <text x="104" y="792" fill="#94A3B8" font-family="Pretendard, Inter, sans-serif" font-size="24" font-weight="600">Gemma 4 makes local agent support feel much more practical.</text>
+</svg>
