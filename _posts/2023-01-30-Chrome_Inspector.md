@@ -1,21 +1,20 @@
 ---
-title:  "Chrome Inspector 사용법"
-excerpt: "Android Chrome과 WebView를 PC에서 원격 디버깅할 때 쓰는 chrome://inspect 사용법 정리"
-
+title: Chrome Inspector 사용법
+excerpt: Android Chrome과 WebView를 PC에서 원격 디버깅할 때 쓰는 chrome://inspect 사용법 정리
 categories:
-  - Inspector
+- Inspector
 tags:
-  - [Chrome, Inspector, Web Debugging, Android, WebView]
-
+- Chrome
+- Inspector
+- Web Debugging
+- Android
+- WebView
 toc: true
-toc_sticky : true
-toc_label : Chrome Inspector
-
+toc_sticky: true
+toc_label: Chrome Inspector
 date: 2023-01-30
 last_modified_at: 2026-03-21
 ---
-
-# Chrome Inspector 사용법
 
 모바일 웹이나 Android WebView를 디버깅할 때는 PC 브라우저 개발자 도구만으로는 한계가 있다. 이때 자주 쓰는 도구가 **Chrome Inspector**다.
 

@@ -1,21 +1,19 @@
 ---
-title:  "Android USB Debugging 활성화"
-excerpt: "Android에서 개발자 옵션을 열고 USB 디버깅과 무선 디버깅을 활성화하는 방법 정리"
-
+title: Android USB Debugging 활성화
+excerpt: Android에서 개발자 옵션을 열고 USB 디버깅과 무선 디버깅을 활성화하는 방법 정리
 categories:
-  - Android
+- Android
 tags:
-  - [usb debugging, Android, adb, wireless debugging]
-
+- usb debugging
+- Android
+- adb
+- wireless debugging
 toc: true
-toc_sticky : true
-toc_label : Android USB Debugging 활성화
-
+toc_sticky: true
+toc_label: Android USB Debugging 활성화
 date: 2023-02-08
 last_modified_at: 2026-03-21
 ---
-
-# Android USB Debugging
 
 Android 기기를 개발이나 디버깅 용도로 사용하려면 가장 먼저 필요한 설정 중 하나가 **USB 디버깅(USB debugging)** 이다. `adb` 명령, Android Studio 디버깅, 로그 확인, APK 설치, WebView 디버깅 같은 작업은 대부분 이 기능이 활성화되어 있어야 한다.
 

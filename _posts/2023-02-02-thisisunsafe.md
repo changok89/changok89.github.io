@@ -1,21 +1,20 @@
 ---
-title:  "Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법"
-excerpt: "사설 인증서 또는 self-signed 인증서 환경에서 Chrome의 NET::ERR_CERT_AUTHORITY_INVALID 오류를 우회하거나 올바르게 해결하는 방법"
-
+title: Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법
+excerpt: 사설 인증서 또는 self-signed 인증서 환경에서 Chrome의 NET::ERR_CERT_AUTHORITY_INVALID 오류를
+  우회하거나 올바르게 해결하는 방법
 categories:
-  - Browser
+- Browser
 tags:
-  - [self-signed certificate, Chrome, TLS, HTTPS]
-
+- self-signed certificate
+- Chrome
+- TLS
+- HTTPS
 toc: true
-toc_sticky : true
-toc_label : self-signed certificate
-
+toc_sticky: true
+toc_label: self-signed certificate
 date: 2023-02-02
 last_modified_at: 2026-03-21
 ---
-
-# Chrome Self-Signed Certificate 오류 해결방법
 
 로컬 서버, 개발용 테스트 서버, 사내망 Tomcat 서버 같은 환경에 접속하다 보면 Chrome에서 아래 오류를 자주 보게 된다.
 

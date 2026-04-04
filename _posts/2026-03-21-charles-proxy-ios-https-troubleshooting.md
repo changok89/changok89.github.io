@@ -16,8 +16,6 @@ date: 2026-03-21
 last_modified_at: 2026-03-21
 ---
 
-# Charles Proxy에서 iPhone HTTPS 트래픽이 안 보일 때 점검 순서
-
 Charles Proxy는 iPhone 앱이나 Safari의 HTTP/HTTPS 요청을 확인할 때 가장 자주 쓰는 도구 중 하나다. 그런데 막상 설정을 해보면 아래 같은 문제를 꽤 자주 만난다.
 
 - HTTP는 보이는데 HTTPS는 안 보인다

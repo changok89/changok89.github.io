@@ -17,8 +17,6 @@ date: 2026-03-18
 last_modified_at: 2026-03-21
 ---
 
-# Chrome NET::ERR_CERT_AUTHORITY_INVALID 해결방법
-
 사내 개발 서버나 로컬 테스트 서버에 접속할 때 Chrome에서 `NET::ERR_CERT_AUTHORITY_INVALID`가 뜨면 처음에는 서버가 완전히 죽은 것처럼 느껴질 수 있다. 그런데 실제로는 서버가 죽은 게 아니라 **브라우저가 해당 인증서를 신뢰하지 않는 상태**인 경우가 많다. 개발 환경에서는 self-signed certificate나 내부 CA를 쓰는 경우가 흔해서 더 자주 만난다.
 
 문제는 해결 방법을 잘못 익히면 위험하다는 점이다. 검색하면 `thisisunsafe`나 `--ignore-certificate-errors` 같은 우회가 먼저 나오는데, 이건 어디까지나 **개발용 임시 수단**이다. 운영 환경 문제를 이런 방식으로 덮으면 안 된다. 이 글에서는 빠른 우회와 근본 해결을 분리해서 본다.

@@ -1,21 +1,19 @@
 ---
-title:  "SwiftUI Keyboard Avoidance"
-excerpt: "SwiftUI에서 키보드가 올라올 때 화면이 과하게 밀리거나 WebView 스크롤이 깨질 때 정리하는 방법"
-
+title: SwiftUI Keyboard Avoidance
+excerpt: SwiftUI에서 키보드가 올라올 때 화면이 과하게 밀리거나 WebView 스크롤이 깨질 때 정리하는 방법
 categories:
-  - iOS
+- iOS
 tags:
-  - [iOS, SwiftUI, Keyboard, WebView]
-
+- iOS
+- SwiftUI
+- Keyboard
+- WebView
 toc: true
-toc_sticky : true
-toc_label : SwiftUI Keyboard Avoidance
-
+toc_sticky: true
+toc_label: SwiftUI Keyboard Avoidance
 date: 2023-02-01
 last_modified_at: 2026-03-21
 ---
-
-# SwiftUI Keyboard Avoidance
 
 iOS 14부터 SwiftUI는 기본적으로 키보드가 올라오면 화면이 가려지지 않도록 레이아웃을 자동으로 조정합니다. 단순한 `TextField` 중심 화면에서는 이 동작이 편리하지만, 실제 프로젝트에서는 이 자동 조정이 오히려 문제를 만들 때가 많습니다.
 

@@ -17,8 +17,6 @@ date: 2026-04-04
 last_modified_at: 2026-04-04
 ---
 
-# apfel을 보면서 든 생각: Mac에 이미 들어 있는 AI를 도구로 바꾸는 방식
-
 ![apfel과 Apple Intelligence를 작업 도구로 바꾸는 방식을 설명하는 대표 이미지](/assets/images/2026/04/apfel-cover.svg)
 
 가끔은 새로운 모델 발표보다, 이미 있는 모델을 **어떻게 꺼내 쓸 수 있게 만들었는가**가 더 흥미로울 때가 있다. apfel이 딱 그랬다.

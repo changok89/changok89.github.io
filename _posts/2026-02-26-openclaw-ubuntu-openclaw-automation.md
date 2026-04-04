@@ -19,8 +19,6 @@ date: 2026-02-26
 last_modified_at: 2026-03-21
 ---
 
-# Ubuntu에 OpenClaw 자동화 시스템 구축하고 Telegram/코딩 자동화 연결하기
-
 이 글은 Mini PC(또는 일반 PC)에 Ubuntu를 설치한 뒤 OpenClaw를 올리고, Telegram 연동 및 `codex-cli` 같은 도구로 코딩 자동화를 구성하는 실전 가이드다. 가능한 한 바로 따라할 수 있게 명령어 예시 중심으로 정리했다.
 
 ## 준비물 및 전제

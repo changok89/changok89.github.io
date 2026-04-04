@@ -1,21 +1,19 @@
 ---
-title:  "WKWebView userAgent"
-excerpt: "WKWebView에서 User-Agent 값을 추가, 변경, 확인하는 방법과 실무상 주의점을 정리"
-
+title: WKWebView userAgent
+excerpt: WKWebView에서 User-Agent 값을 추가, 변경, 확인하는 방법과 실무상 주의점을 정리
 categories:
-  - iOS
+- iOS
 tags:
-  - [WKWebView, userAgent, iOS, WebView]
-
+- WKWebView
+- userAgent
+- iOS
+- WebView
 toc: true
-toc_sticky : true
-toc_label : WKWebView userAgent
-
+toc_sticky: true
+toc_label: WKWebView userAgent
 date: 2023-02-09
 last_modified_at: 2026-03-21
 ---
-
-# WKWebView UserAgent 다루기
 
 웹 요청에는 보통 브라우저나 디바이스 정보를 담은 `User-Agent` 헤더가 포함된다. 하이브리드 앱이나 앱 내 WebView를 운영하다 보면 이 값을 수정해야 할 일이 생각보다 자주 생긴다.
 

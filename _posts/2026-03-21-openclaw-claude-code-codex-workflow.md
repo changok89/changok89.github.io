@@ -16,8 +16,6 @@ date: 2026-03-21
 last_modified_at: 2026-03-21
 ---
 
-# OpenClaw, Claude Code, Codex를 같이 쓸 때 역할 나누기
-
 ![OpenClaw, Claude Code, Codex를 같이 쓸 때 역할 나누기를 설명하는 대표 이미지](/assets/images/2026/03/openclaw-claude-codex-roles.jpg)
 
 로컬 또는 개인 서버 환경에서 AI 자동화를 붙이기 시작하면 금방 드는 생각이 있다.

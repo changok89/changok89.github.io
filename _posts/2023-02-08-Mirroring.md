@@ -1,21 +1,19 @@
 ---
-title:  "iOS 화면 미러링"
-excerpt: "QuickTime, AirPlay, 서드파티 도구로 iPhone과 iPad 화면을 macOS 또는 다른 기기에 미러링하는 방법 정리"
-
+title: iOS 화면 미러링
+excerpt: QuickTime, AirPlay, 서드파티 도구로 iPhone과 iPad 화면을 macOS 또는 다른 기기에 미러링하는 방법 정리
 categories:
-  - Utility
+- Utility
 tags:
-  - [iOS, Mirroring, QuickTime, AirPlay]
-
+- iOS
+- Mirroring
+- QuickTime
+- AirPlay
 toc: true
-toc_sticky : true
-toc_label : iOS Mirroring
-
+toc_sticky: true
+toc_label: iOS Mirroring
 date: 2023-02-08
 last_modified_at: 2026-03-21
 ---
-
-# iOS Mirroring
 
 iPhone이나 iPad 화면을 외부 화면에 보여줘야 하는 상황은 생각보다 자주 생긴다. 예를 들면 아래와 같다.
 

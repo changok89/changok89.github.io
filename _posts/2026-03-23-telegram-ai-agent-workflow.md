@@ -16,8 +16,6 @@ date: 2026-03-23
 last_modified_at: 2026-03-23
 ---
 
-# Telegram으로 AI 에이전트 작업을 지시할 때 좋은 점과 함정
-
 ![Telegram으로 AI 에이전트 작업을 지시할 때 좋은 점과 함정을 설명하는 대표 이미지](/assets/images/2026/03/telegram-agent-pros-and-cons.jpg)
 
 AI 에이전트를 실제로 쓰기 시작하면 금방 드는 생각이 있다. 굳이 웹 UI를 열지 않아도, **메신저에서 바로 작업을 던질 수 있으면 훨씬 편하지 않을까?**

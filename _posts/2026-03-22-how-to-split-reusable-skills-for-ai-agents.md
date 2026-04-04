@@ -16,8 +16,6 @@ date: 2026-03-22
 last_modified_at: 2026-03-22
 ---
 
-# AI 에이전트에서 재사용 가능한 Skills를 나누는 방법
-
 ![AI 에이전트에서 재사용 가능한 Skills를 나누는 방법을 설명하는 대표 이미지](/assets/images/2026/03/reusable-skills.jpg)
 
 에이전트에게 비슷한 일을 반복해서 맡기다 보면 운영 피로가 커진다.

@@ -1,21 +1,19 @@
 ---
-title:  "Charles Web Proxy 사용법"
-excerpt: "Charles Proxy 설치부터 macOS와 iPhone에서 HTTPS 트래픽을 확인하기 위한 기본 설정 정리"
-
+title: Charles Web Proxy 사용법
+excerpt: Charles Proxy 설치부터 macOS와 iPhone에서 HTTPS 트래픽을 확인하기 위한 기본 설정 정리
 categories:
-  - Proxy
+- Proxy
 tags:
-  - [Charles, Proxy, HTTPS, Debugging]
-
+- Charles
+- Proxy
+- HTTPS
+- Debugging
 toc: true
-toc_sticky : true
-toc_label : Charles Proxy
-
+toc_sticky: true
+toc_label: Charles Proxy
 date: 2023-01-29
 last_modified_at: 2026-03-21
 ---
-
-# Charles Web Proxy 란?
 
 Charles는 HTTP/HTTPS 트래픽을 확인하고 디버깅할 때 많이 쓰는 프록시 도구다. 브라우저나 모바일 앱에서 발생하는 요청과 응답을 중간에서 캡처해볼 수 있어서, 네트워크 디버깅이 필요할 때 거의 기본 도구처럼 쓰인다.
 

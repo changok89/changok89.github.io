@@ -1,21 +1,19 @@
 ---
-title:  "XCode Command Line tool을 이용한 Build, Archive, Export"
-excerpt: "xcodebuild로 iOS 프로젝트를 clean, build, archive, export 할 때 자주 쓰는 명령 정리"
-
+title: XCode Command Line tool을 이용한 Build, Archive, Export
+excerpt: xcodebuild로 iOS 프로젝트를 clean, build, archive, export 할 때 자주 쓰는 명령 정리
 categories:
-  - Utility
+- Utility
 tags:
-  - [XCode, xcodebuild, iOS, CI]
-
+- XCode
+- xcodebuild
+- iOS
+- CI
 toc: true
-toc_sticky : true
-toc_label : XCodeBuild
-
+toc_sticky: true
+toc_label: XCodeBuild
 date: 2023-02-06
 last_modified_at: 2026-03-21
 ---
-
-# Xcode Command Line Tool / xcodebuild 사용법
 
 `xcodebuild`는 Xcode 프로젝트를 명령줄에서 빌드, 테스트, 아카이브, 내보내기 할 수 있게 해주는 기본 도구다. CI/CD 환경에서는 사실상 필수고, 로컬에서도 GUI를 열지 않고 빌드 상태를 빠르게 확인할 때 유용하다.
 

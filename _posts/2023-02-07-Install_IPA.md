@@ -1,21 +1,19 @@
 ---
-title:  "IPA 파일 설치"
-excerpt: "Xcode, Apple Configurator, OTA 링크를 이용해 IPA 파일을 iPhone에 설치하는 대표 방법 정리"
-
+title: IPA 파일 설치
+excerpt: Xcode, Apple Configurator, OTA 링크를 이용해 IPA 파일을 iPhone에 설치하는 대표 방법 정리
 categories:
-  - iOS
+- iOS
 tags:
-  - [IPA, iOS, Xcode, Apple Configurator]
-
+- IPA
+- iOS
+- Xcode
+- Apple Configurator
 toc: true
-toc_sticky : true
-toc_label : IPA 파일 설치 방법
-
+toc_sticky: true
+toc_label: IPA 파일 설치 방법
 date: 2023-02-07
 last_modified_at: 2026-03-21
 ---
-
-# IPA 파일 설치방법
 
 일반 사용자는 App Store를 통해 앱을 설치하지만, 개발/테스트 환경에서는 App Store를 거치지 않고 IPA 파일을 직접 설치해야 하는 경우가 있다.
 

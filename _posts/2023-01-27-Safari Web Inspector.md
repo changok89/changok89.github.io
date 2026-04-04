@@ -1,21 +1,19 @@
 ---
-title:  "Safari Inspector 사용법"
-excerpt: "Mac Safari에서 iPhone Safari와 WebView를 원격 디버깅하는 Web Inspector 사용법 정리"
-
+title: Safari Inspector 사용법
+excerpt: Mac Safari에서 iPhone Safari와 WebView를 원격 디버깅하는 Web Inspector 사용법 정리
 categories:
-  - iOS
+- iOS
 tags:
-  - [Safari, Web Debugging, Web Inspector, WKWebView]
-
+- Safari
+- Web Debugging
+- Web Inspector
+- WKWebView
 toc: true
-toc_sticky : true
-toc_label : Safari Inspector
-
+toc_sticky: true
+toc_label: Safari Inspector
 date: 2023-01-27
 last_modified_at: 2026-03-21
 ---
-
-# Safari Web Inspector
 
 모바일 웹이나 iOS 앱 내부 `WKWebView`를 디버깅할 때 가장 기본적으로 쓰는 도구가 **Safari Web Inspector**다. Mac의 Safari에서 iPhone 또는 iPad에 열려 있는 웹 페이지나 WebView를 원격으로 inspect할 수 있다.
 
