@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Changok Kim"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Mobile-focused developer sharing practical debugging notes, tooling guides, and on-device AI experiments."
+  bio              : "Mobile debugging, tools, and on-device AI notes."
   location         : "Republic of Korea"
   email            :
   links:

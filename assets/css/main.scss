@@ -7,3 +7,252 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+.landing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 1.5rem;
+  margin: 0 0 2.5rem;
+  padding: 2rem;
+  border: 1px solid mix(#fff, #6b7280, 92%);
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, #fff 0%, #f6f8fb 100%);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+}
+
+.landing-hero h1 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.12;
+}
+
+.landing-hero__eyebrow {
+  margin-bottom: 0.75rem;
+  color: #2563eb;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.landing-hero__lead {
+  max-width: 58ch;
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #475569;
+}
+
+.landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.landing-hero__meta {
+  display: grid;
+  gap: 1rem;
+}
+
+.landing-stat,
+.topic-card,
+.curated-panel,
+.archive__item--enhanced {
+  border: 1px solid mix(#fff, #94a3b8, 88%);
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+}
+
+.landing-stat {
+  padding: 1.1rem 1.15rem;
+}
+
+.landing-stat strong {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.landing-stat span {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.topic-section {
+  margin: 0 0 2.75rem;
+}
+
+.topic-section__header {
+  margin-bottom: 1rem;
+}
+
+.topic-section__header h2,
+.curated-strip__intro h2 {
+  margin-bottom: 0.35rem;
+}
+
+.topic-section__header p,
+.curated-strip__intro p {
+  color: #64748b;
+}
+
+.topic-grid,
+.curated-strip__columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.topic-card {
+  display: block;
+  padding: 1.25rem;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+}
+
+.topic-card__label {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.topic-card strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.topic-card p,
+.curated-panel li,
+.archive__item-excerpt {
+  line-height: 1.7;
+}
+
+.curated-strip {
+  margin-bottom: 2.75rem;
+}
+
+.curated-panel {
+  padding: 1.25rem;
+}
+
+.curated-panel ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.curated-panel li + li {
+  margin-top: 0.55rem;
+}
+
+.archive__item--enhanced {
+  padding: 1.15rem 1.2rem;
+}
+
+.archive__item-taxonomies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.7rem;
+}
+
+.archive__item-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.archive__item-pill--category {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.archive__item-pill--tag {
+  background: #f8fafc;
+  color: #475569;
+}
+
+.archive__item-title {
+  margin-bottom: 0.45rem;
+}
+
+.archive__item-title a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
+}
+
+.page__content {
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+.page__content p,
+.page__content li {
+  color: #243042;
+}
+
+.page__content h2,
+.page__content h3,
+.page__content h4 {
+  margin-top: 1.8em;
+  letter-spacing: -0.01em;
+}
+
+.page__content pre,
+.page__content div.highlighter-rouge,
+.page__content figure.highlight {
+  margin: 1.4rem 0;
+  border-radius: 0.9rem;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.page__content code {
+  padding: 0.15em 0.35em;
+  border-radius: 0.35rem;
+  background: #f8fafc;
+  font-size: 0.92em;
+}
+
+.page__content pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.archive__subtitle {
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+}
+
+@media (max-width: 900px) {
+  .landing-hero,
+  .topic-grid,
+  .curated-strip__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero {
+    padding: 1.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .author__bio {
+    display: none;
+  }
+}
