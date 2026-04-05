@@ -1,0 +1,29 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0B1020"/>
+  <rect x="64" y="64" width="1472" height="772" rx="28" fill="#11182D" stroke="#26324F" stroke-width="2"/>
+  <text x="104" y="142" fill="#93C5FD" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">Claude / OpenClaw / Subscription AI</text>
+  <text x="104" y="212" fill="#F4F7FF" font-family="Pretendard, Inter, sans-serif" font-size="52" font-weight="800">월정액 AI와 에이전트는</text>
+  <text x="104" y="276" fill="#F4F7FF" font-family="Pretendard, Inter, sans-serif" font-size="52" font-weight="800">왜 자주 충돌할까</text>
+
+  <rect x="104" y="334" width="620" height="392" rx="24" fill="#0D1527" stroke="#24314E" stroke-width="2"/>
+  <text x="144" y="392" fill="#A5B4FC" font-family="Pretendard, Inter, sans-serif" font-size="26" font-weight="700">What breaks first</text>
+  <text x="144" y="456" fill="#E5EDFF" font-family="Pretendard, Inter, sans-serif" font-size="32" font-weight="700">• long sessions</text>
+  <text x="144" y="508" fill="#E5EDFF" font-family="Pretendard, Inter, sans-serif" font-size="32" font-weight="700">• repeated tool calls</text>
+  <text x="144" y="560" fill="#E5EDFF" font-family="Pretendard, Inter, sans-serif" font-size="32" font-weight="700">• retries and verification</text>
+  <text x="144" y="612" fill="#E5EDFF" font-family="Pretendard, Inter, sans-serif" font-size="32" font-weight="700">• parallel workflows</text>
+  <text x="144" y="684" fill="#93C5FD" font-family="Pretendard, Inter, sans-serif" font-size="26" font-weight="700">The issue is usage pattern, not just policy.</text>
+
+  <rect x="786" y="334" width="650" height="392" rx="24" fill="#0D1527" stroke="#24314E" stroke-width="2"/>
+  <rect x="850" y="410" width="210" height="72" rx="18" fill="#059669"/>
+  <text x="889" y="454" fill="white" font-family="Inter, sans-serif" font-size="28" font-weight="800">CHAT</text>
+  <rect x="1154" y="410" width="218" height="72" rx="18" fill="#DC2626"/>
+  <text x="1187" y="454" fill="white" font-family="Inter, sans-serif" font-size="28" font-weight="800">AGENT</text>
+  <line x1="1060" y1="446" x2="1154" y2="446" stroke="#93C5FD" stroke-width="6"/>
+  <text x="852" y="548" fill="#BBF7D0" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">question → answer</text>
+  <text x="852" y="594" fill="#BBF7D0" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">lighter usage</text>
+  <text x="1158" y="548" fill="#FECACA" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">task → many calls</text>
+  <text x="1158" y="594" fill="#FECACA" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">higher cost pressure</text>
+  <text x="1158" y="640" fill="#FECACA" font-family="Pretendard, Inter, sans-serif" font-size="28" font-weight="700">capacity conflicts</text>
+
+  <text x="104" y="792" fill="#94A3B8" font-family="Pretendard, Inter, sans-serif" font-size="24" font-weight="600">As agents grow, flat-rate AI pricing gets harder to sustain.</text>
+</svg>
