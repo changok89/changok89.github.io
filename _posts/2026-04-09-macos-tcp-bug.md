@@ -1,18 +1,16 @@
 ---
-title: "macOS 49일 TCP 버그를 보며 든 생각: Mac도 오래 켜둘 거면 서버처럼 운영해야 한다"
-excerpt: "macOS XNU 커널에서 약 49.7일 연속 가동 후 새 TCP 연결이 마비되는 버그 사례를 보면, Mac mini 빌드팜이나 CI 서버처럼 장시간 무중단으로 굴리는 환경에서는 macOS도 더 이상 개인용 데스크톱처럼 다루면 안 된다는 생각이 든다."
+title: "macOS TCP 버그를 보며 든 생각: Mac도 오래 켜둘 거면 서버처럼 운영해야 한다"
+excerpt: "macOS를 장시간 무중단으로 굴리는 환경에서는 이제 데스크톱이 아니라 서버처럼 운영해야 한다는 생각이 든다."
 categories:
   - macOS
 tags:
   - macOS
   - TCP
-  - XNU
   - Kernel
-  - Build Server
   - CI
 toc: true
 toc_sticky: true
-toc_label: macOS TCP Bug
+toc_label: TCP Bug
 date: 2026-04-09
 last_modified_at: 2026-04-09
 ---
