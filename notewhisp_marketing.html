@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NoteWhisp - 소개</title>
+    <meta name="description" content="NoteWhisp는 회의 녹음을 폰에 남기고, 사용자가 지정한 private LLM으로 받아쓰기와 회의록을 만드는 앱입니다.">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7f8;
+            --surface: #fffeff;
+            --text: #1e2e3c;
+            --muted: #4d6270;
+            --accent: #2d949e;
+            --border: #d7e6ea;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: linear-gradient(180deg, #f4f7f8 0%, #fbfcfd 100%);
+            color: var(--text);
+            line-height: 1.65;
+        }
+
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 20px 72px;
+        }
+
+        section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 20px;
+            box-shadow: 0 16px 40px rgba(30, 46, 60, 0.06);
+        }
+
+        h1, h2 {
+            margin: 0 0 12px;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            font-size: 1.24rem;
+        }
+
+        p {
+            margin: 0 0 12px;
+            color: var(--muted);
+        }
+
+        ul {
+            margin: 12px 0 0;
+            padding-left: 20px;
+        }
+
+        li + li {
+            margin-top: 8px;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section>
+        <div class="eyebrow">NoteWhisp</div>
+        <h1>회의는 폰에 남기고, 회의록은 내 private LLM로 작성합니다</h1>
+        <p>NoteWhisp는 회의를 녹음하거나 이미 있는 오디오를 가져와, 사용자가 지정한 private LLM으로 받아쓰기와 회의록을 만드는 앱입니다.</p>
+        <p>NoteWhisp 서버는 없습니다. 주소를 저장하기 전에는 오디오가 폰 밖으로 나가지 않습니다.</p>
+    </section>
+
+    <section>
+        <h2>핵심 가치</h2>
+        <p>회의 내용을 앱 운영 서버에 올리지 않습니다. 받아쓰기와 요약이 필요하면, 사용자가 신뢰하는 모델 주소만 사용합니다.</p>
+    </section>
+
+    <section>
+        <h2>주요 기능</h2>
+        <ul>
+            <li>마이크 녹음과 일시정지, 앱을 내려도 이어지는 녹음</li>
+            <li>이미 녹음된 오디오 파일 가져오기</li>
+            <li>OpenAI 호환 private LLM으로 받아쓰기</li>
+            <li>요약, 결정, 할 일이 있는 회의록 작성</li>
+            <li>회의록 수정과 마크다운 공유</li>
+            <li>연결 실패나 빈 결과는 완성된 회의록처럼 보여 주지 않음</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>이 앱이 필요한 사용자</h2>
+        <p>회의 녹음을 외부 회의록 서비스에 올리고 싶지 않은 사람, 이미 운영 중인 private LLM이 있는 프리랜서, 컨설턴트, 소규모 팀을 대상으로 합니다.</p>
+    </section>
+
+    <section>
+        <h2>대표 사용 사례</h2>
+        <ul>
+            <li>상담이나 인터뷰를 폰에 녹음하고, 내 서버에서 회의록 초안을 받을 때</li>
+            <li>이미 있는 녹음 파일을 가져와 요약, 결정, 할 일로 정리할 때</li>
+            <li>완성된 회의록을 고친 뒤 마크다운으로 노트 앱에 넘길 때</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>광고</h2>
+        <p>수익은 AdMob입니다. 배너는 홈과 회의록 목록에 둡니다. 전면 광고는 완성된 회의록을 닫고 나올 때 나올 수 있습니다. 설정에서 광고를 보면 앱을 닫기 전까지 배너가 숨습니다. 녹음 화면, 작성 중 화면, 회의록 본문에는 광고를 두지 않습니다. 회의 내용은 광고에 사용하지 않습니다.</p>
+    </section>
+
+    <section>
+        <h2>더 보기</h2>
+        <p>개인정보처리방침: <a href="https://changok89.github.io/notewhisp_privacy-policy.html">https://changok89.github.io/notewhisp_privacy-policy.html</a></p>
+        <p>지원: <a href="https://changok89.github.io/notewhisp_support.html">https://changok89.github.io/notewhisp_support.html</a></p>
+    </section>
+</main>
+</body>
+</html>

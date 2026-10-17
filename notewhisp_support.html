@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NoteWhisp - 지원</title>
+    <meta name="description" content="NoteWhisp 지원 페이지">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f6fb;
+            --surface: #fffeff;
+            --text: #1e2e3c;
+            --muted: #4d6270;
+            --accent: #556bc8;
+            --border: #d9e0f2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at top, #fbfcff 0%, #f4f6fb 58%, #eef2f8 100%);
+            color: var(--text);
+            line-height: 1.65;
+        }
+
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 20px 72px;
+        }
+
+        section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+            margin-top: 18px;
+        }
+
+        h1, h2 {
+            margin: 0 0 12px;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+        }
+
+        h2 {
+            font-size: 1.18rem;
+        }
+
+        p {
+            margin: 0 0 12px;
+            color: var(--muted);
+        }
+
+        ul {
+            margin: 10px 0 0;
+            padding-left: 20px;
+        }
+
+        li + li {
+            margin-top: 8px;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section>
+        <div class="eyebrow">NoteWhisp</div>
+        <h1>지원</h1>
+        <p>이 페이지는 NoteWhisp로 회의를 녹음하고 회의록을 만드는 중에 도움이 필요할 때 보는 기본 안내입니다.</p>
+    </section>
+
+    <section>
+        <h2>앱이 하는 일</h2>
+        <p>NoteWhisp는 회의 오디오를 이 폰에 저장합니다. 설정에 private LLM 주소를 넣어 두면, 그 주소에서 받아쓰기와 회의록(요약, 결정, 할 일)을 만듭니다. 완성된 회의록은 앱 안에서 고치고 마크다운으로 공유할 수 있습니다.</p>
+    </section>
+
+    <section>
+        <h2>연결 방법</h2>
+        <ul>
+            <li>설정에서 OpenAI 호환 기본 주소를 입력합니다. 예: https://llm.example.com/v1</li>
+            <li>받아쓰기 모델 이름과 회의록 모델 이름을 모두 입력합니다.</li>
+            <li>서버가 키를 요구할 때만 API 키를 입력합니다. 키는 이 폰의 앱 안에 저장됩니다.</li>
+            <li>주소를 저장하기 전에는 녹음만 되고, 받아쓰기는 시작하지 않습니다.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>자주 겪는 문제</h2>
+        <ul>
+            <li>녹음이 시작되지 않으면 마이크 권한이 허용되어 있는지 확인해 주세요.</li>
+            <li>회의록이 만들어지지 않고 연결이 필요하다고 나오면 설정에 주소와 모델 이름이 저장되어 있는지 확인해 주세요.</li>
+            <li>주소에 연결하지 못하면 http 또는 https로 시작하는지, 폰이 그 서버에 도달할 수 있는지 확인해 주세요. 같은 네트워크의 서버는 주소가 http일 수 있습니다.</li>
+            <li>HTTP 401이 나오면 API 키를 다시 확인해 주세요.</li>
+            <li>응답이 너무 오래 걸리거나 빈 받아쓰기가 오면 오디오 길이와 서버 상태를 확인한 뒤 같은 녹음으로 다시 시도해 주세요.</li>
+            <li>광고가 보이지 않으면 네트워크를 확인해 주세요. 불러오지 못한 광고는 빈 칸으로 두지 않습니다. 완성된 회의록을 처음 닫을 때와 녹음 직후에는 전면 광고가 나오지 않습니다.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>권장 점검 방법</h2>
+        <ul>
+            <li>앱을 완전히 종료한 뒤 다시 실행하기</li>
+            <li>최신 앱 버전으로 업데이트하기</li>
+            <li>마이크 권한과 알림 권한 상태 확인하기</li>
+            <li>네트워크가 private LLM 주소와 연결되는지 확인하기</li>
+            <li>가져오기에 실패한 파일이 비어 있지 않은 오디오인지 확인하기</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>지원 요청 시 함께 보내면 좋은 정보</h2>
+        <p>문제가 생긴 화면, 녹음인지 가져온 파일인지, 설정에 주소를 저장한 뒤였는지, 화면에 나온 문구를 함께 알려 주세요. 회의 오디오, 받아쓴 글, API 키는 보내지 않아도 됩니다.</p>
+    </section>
+
+    <section>
+        <h2>문의처</h2>
+        <p>직접 지원이 필요하면 <a href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a> 으로 문의해 주세요.</p>
+        <p>개인정보처리방침: <a href="https://changok89.github.io/notewhisp_privacy-policy.html">https://changok89.github.io/notewhisp_privacy-policy.html</a></p>
+    </section>
+
+    <section>
+        <h2>피드백</h2>
+        <p>어떤 회의를 어떻게 정리하고 싶은지 알려 주시면, 녹음 이후의 회의록 흐름을 다듬는 데 도움이 됩니다.</p>
+    </section>
+</main>
+</body>
+</html>
