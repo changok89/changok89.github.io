@@ -94,7 +94,7 @@
 
     <section>
         <h2>개요</h2>
-        <p>NoteWhisp는 회의를 녹음하고, 사용자가 지정한 private LLM으로 받아쓰기와 회의록을 만들며, 그 결과를 이 폰에 저장하는 앱입니다. NoteWhisp 계정은 없고, NoteWhisp가 운영하는 서버로 회의 내용을 올리는 구조가 아닙니다.</p>
+        <p>NoteWhisp는 회의를 녹음하고, 이 폰의 온디바이스 모델로 받아쓰기와 회의록을 만들며, 그 결과를 이 폰에 저장하는 앱입니다. NoteWhisp 계정은 없고, NoteWhisp가 운영하는 서버로 회의 내용을 올리는 구조가 아닙니다.</p>
     </section>
 
     <section>
@@ -102,7 +102,7 @@
         <ul>
             <li>마이크 녹음 또는 사용자가 가져온 회의 오디오 파일</li>
             <li>받아쓴 글, 요약, 결정, 할 일로 저장된 회의록</li>
-            <li>사용자가 설정에 입력한 private LLM 주소, 모델 이름, API 키</li>
+            <li>설정에서 받은 온디바이스 모델 파일</li>
             <li>광고가 켜진 경우 광고 SDK가 처리할 수 있는 광고 식별자와 기기 관련 정보</li>
         </ul>
     </section>
@@ -111,7 +111,7 @@
         <h2>정보 이용 목적</h2>
         <ul>
             <li>회의를 이 폰에 녹음하고 오디오 파일을 보관하기 위해</li>
-            <li>사용자가 연결한 private LLM에 받아쓰기와 회의록 작성을 요청하기 위해</li>
+            <li>이 폰에서 받아쓰기와 회의록을 만들기 위해</li>
             <li>회의록을 읽고, 고치고, 마크다운으로 공유하기 위해</li>
             <li>홈과 회의록 목록에 배너 광고를 표시하기 위해</li>
             <li>완성된 회의록을 닫고 나올 때 전면 광고를 표시하기 위해</li>
@@ -121,12 +121,12 @@
 
     <section>
         <h2>로컬 저장</h2>
-        <p>오디오, 회의록, private LLM 주소와 API 키는 앱 전용 저장소에 둡니다. 이 앱의 안드로이드 백업은 꺼져 있습니다. 회의를 앱에서 지우거나 앱을 삭제하면 해당 오디오, 회의록, 저장한 주소가 이 폰에서 지워집니다.</p>
+        <p>오디오, 회의록, 온디바이스 모델 파일은 앱 전용 저장소에 둡니다. 이 앱의 안드로이드 백업은 꺼져 있습니다. 회의를 앱에서 지우면 그 오디오와 회의록이 지워집니다. 앱을 삭제하면 오디오, 회의록, 받은 모델이 이 폰에서 지워집니다.</p>
     </section>
 
     <section>
-        <h2>Private LLM</h2>
-        <p>주소를 저장하지 않으면 회의 오디오를 보내지 않습니다. 주소를 저장한 뒤에 받아쓰기나 회의록 작성을 실행하면, 그 작업의 오디오와 받아쓴 글만 사용자가 입력한 주소로 전송됩니다. 요청에는 사용자가 저장한 API 키가 포함될 수 있습니다. 그 주소의 운영자가 데이터를 어떻게 다루는지는 그 서비스의 정책을 따릅니다.</p>
+        <h2>온디바이스 모델</h2>
+        <p>받아쓰기와 회의록은 이 폰에서 만듭니다. 회의 음성, 받아쓴 글, 회의록은 올리지 않습니다. 영어가 기본입니다. 앱은 고른 언어의 받아쓰기 모델과 회의록 모델을 받습니다. 영어는 약 4.4GB입니다. 일본어는 약 1.5GB가 더 필요합니다. 실행에는 메모리 12GB 폰이 필요합니다. 그 다운로드에는 회의 내용이 들어가지 않습니다. 모델이 이 폰에 없으면 녹음은 저장되고, 받아쓰기는 시작하지 않습니다.</p>
     </section>
 
     <section>
@@ -141,13 +141,13 @@
             <li>마이크, 회의를 녹음하기 위해</li>
             <li>알림, 녹음 중과 회의록 작성 중임을 알려 주기 위해</li>
             <li>사용자가 고른 오디오 파일을 읽어 앱 안으로 복사하기 위해</li>
-            <li>네트워크, 사용자가 지정한 private LLM 호출과 광고 표시를 위해</li>
+            <li>네트워크, 모델 파일 다운로드와 광고 표시를 위해</li>
         </ul>
     </section>
 
     <section>
         <h2>제3자 제공 및 공유</h2>
-        <p>NoteWhisp는 회의 내용을 자체 서버에 수집하지 않습니다. 사용자가 연결한 private LLM 제공자와, 광고가 켜진 경우의 AdMob이 위 범위에서 정보를 처리할 수 있습니다. 마크다운 공유는 사용자가 고른 다른 앱으로만 전달됩니다.</p>
+        <p>NoteWhisp는 회의 내용을 자체 서버에 수집하지 않습니다. 모델 파일을 받는 배포처와, 광고가 켜진 경우의 AdMob이 위 범위에서 정보를 처리할 수 있습니다. 모델 다운로드 요청에는 회의 내용을 넣지 않습니다. 마크다운 공유는 사용자가 고른 다른 앱으로만 전달됩니다.</p>
     </section>
 
     <section>
@@ -169,8 +169,8 @@
     <section>
         <h2>Privacy policy</h2>
         <p>Effective date: October 18, 2026.</p>
-        <p>NoteWhisp stores meeting audio and minutes on the phone. There is no NoteWhisp account and no NoteWhisp server. The microphone is used only while you record. If you save a private LLM address, audio and the transcript for that job are sent only to that address with the API key you saved. If you do not save an address, audio is not sent.</p>
-        <p>An AdMob banner can appear on Home and the minutes list. A fullscreen ad can appear when you leave a finished note. You can watch an ad in Settings to hide banners until the app is closed. Ads are not shown while recording, while minutes are written, on a minutes page, or in the moment a recording stops. Meeting audio and minute text are not sent with ads. Android backup of this app data is off. Deleting a meeting, or uninstalling the app, removes the audio, the minutes, and the saved address. The app is not directed at children.</p>
+        <p>NoteWhisp stores meeting audio and minutes on the phone. There is no NoteWhisp account and no NoteWhisp server. The microphone is used only while you record. Transcription and minutes run on this phone. Meeting audio, the transcript, and the minutes are not uploaded. English is the default. The app downloads the speech model for the language you choose, plus the minutes model. English is about 4.4 GB. Japanese adds about 1.5 GB. These models need a phone with 12 GB of memory. That download does not include the meeting.</p>
+        <p>An AdMob banner can appear on Home and the minutes list. A fullscreen ad can appear when you leave a finished note. You can watch an ad in Settings to hide banners until the app is closed. Ads are not shown while recording, while minutes are written, on a minutes page, or in the moment a recording stops. Meeting audio and minute text are not sent with ads. Android backup of this app data is off. Deleting a meeting, or uninstalling the app, removes the audio, the minutes, and the downloaded models. The app is not directed at children.</p>
         <p>Contact: <a href="mailto:judasiscariot055@gmail.com">judasiscariot055@gmail.com</a></p>
     </section>
 </main>
